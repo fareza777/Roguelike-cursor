@@ -1,0 +1,16 @@
+---
+description: Setelah commit perubahan game, selalu push ke GitHub origin/main.
+globs:
+alwaysApply: true
+---
+
+# Auto-push ke GitHub
+
+Setelah membuat commit di repo ini:
+
+1. Pastikan remote: `origin` → `https://github.com/fareza777/Roguelike-cursor.git`
+2. Branch utama: `main`
+3. Jalankan: `git push origin main` (atau `git push` jika upstream sudah diset)
+4. Jika push gagal (auth), beritahu user dan jangan klaim sudah ter-push
+
+Jangan push jika user hanya minta review tanpa perubahan file.
