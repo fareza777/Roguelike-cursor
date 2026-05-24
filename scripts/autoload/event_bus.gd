@@ -14,3 +14,5 @@ signal gold_changed(amount: int)
 signal floor_changed(floor_num: int)
 signal request_next_room
 signal ui_toast(message: String)
+signal synergies_changed(active: Array)
+signal codex_unlocked(item_id: String, item_data: Dictionary)

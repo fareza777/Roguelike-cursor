@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://synergybar01"]
+
+[ext_resource type="Script" path="res://scripts/ui/synergy_bar.gd" id="1"]
+
+[node name="SynergyBar" type="HBoxContainer"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = -36.0
+offset_right = 400.0
+offset_bottom = -8.0
+grow_vertical = 0
+theme_override_constants/separation = 10
+script = ExtResource("1")
+
+[node name="TemplateLabel" type="Label" parent="."]
+visible = false
+text = "template"

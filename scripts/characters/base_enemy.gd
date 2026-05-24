@@ -165,7 +165,7 @@ func _spawn_loot() -> void:
 	if randf() > chance:
 		return
 	var table_id: String = _data.get("loot_table", "common_tier1")
-	var item_data := DataManager.roll_loot(table_id)
+	var item_data := ItemRoller.roll_item_from_loot(table_id)
 	var pickup_scene := preload("res://scenes/items/ItemPickup.tscn")
 	var pickup := pickup_scene.instantiate()
 	pickup.item_data = item_data

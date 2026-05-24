@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://hud001"]
+[gd_scene load_steps=5 format=3 uid="uid://hud001"]
 
 [ext_resource type="Script" path="res://scripts/ui/hud.gd" id="1"]
 [ext_resource type="PackedScene" uid="uid://invpanel01" path="res://scenes/ui/InventoryPanel.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://codexpanel01" path="res://scenes/ui/CodexPanel.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://synergybar01" path="res://scenes/ui/SynergyBar.tscn" id="4"]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1")
@@ -125,5 +127,9 @@ horizontal_alignment = 1
 text = "Try Again"
 
 [node name="InventoryPanel" parent="." instance=ExtResource("2")]
+
+[node name="CodexPanel" parent="." instance=ExtResource("3")]
+
+[node name="SynergyBar" parent="." instance=ExtResource("4")]
 
 [connection signal="pressed" from="GameOverPanel/VBox/RestartBtn" to="." method="_on_restart_pressed"]

@@ -37,15 +37,15 @@
 
 ---
 
-## Fase 2 — Kedalaman Item & Sinergi (Minggu 11–18)
+## Fase 2 — Kedalaman Item & Sinergi (Minggu 11–18) ✅ *selesai (v0.3)*
 
-- [ ] Parser efek lengkap: `on_hit`, `on_kill`, `passive`, `aura`, `proc`
-- [ ] **Rarity & affix** roll pada drop
-- [ ] **Synergy tags** (fire, bleed, crit, summon…) — UI indicator
-- [ ] **Consumable** (potion, bomb, scroll)
-- [ ] **Shop NPC** + harga dinamis
-- [ ] **Codex** in-game (100 entri lore terbuka progresif)
-- [ ] Balance pass v1 (spreadsheet `docs/balance/`)
+- [x] Parser efek lengkap: `on_hit`, `on_kill`, `passive`, `aura`, `proc`
+- [x] **Rarity & affix** roll pada drop
+- [x] **Synergy tags** (fire, bleed, crit, summon…) — UI indicator
+- [x] **Consumable** (potion, bomb, scroll, buff)
+- [x] **Shop NPC** + harga dinamis
+- [x] **Codex** in-game (100 entri lore terbuka progresif)
+- [x] Balance pass v1 (spreadsheet `docs/balance/`)
 
 **Exit criteria:** Minimal 30 build berbeda terasa unik; codex 100% terbaca.
 

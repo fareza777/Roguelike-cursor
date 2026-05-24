@@ -182,9 +182,10 @@
           "value": 25
         },
         {
-          "type": "stat",
-          "stat": "attack",
-          "value": 3
+          "type": "aura",
+          "apply": "burn_aura",
+          "damage": 2,
+          "duration": 999
         }
       ],
       "sell_price": 60,
@@ -217,7 +218,7 @@
         {
           "type": "stat",
           "stat": "attack",
-          "value": 5
+          "value": 3
         }
       ],
       "sell_price": 120,
@@ -373,16 +374,15 @@
       },
       "effects": [
         {
-          "type": "stat",
-          "stat": "attack",
-          "value": 3
+          "type": "aura",
+          "apply": "burn_aura",
+          "damage": 2,
+          "duration": 999
         },
         {
-          "type": "on_hit",
-          "proc": 0.12,
-          "apply": "bleed",
-          "damage": 2,
-          "duration": 3
+          "type": "stat",
+          "stat": "max_hp",
+          "value": 25
         }
       ],
       "sell_price": 35,
@@ -408,14 +408,14 @@
         {
           "type": "stat",
           "stat": "attack",
-          "value": 5
+          "value": 3
         },
         {
           "type": "on_hit",
-          "proc": 0.1,
-          "apply": "burn",
-          "damage": 3,
-          "duration": 2
+          "proc": 0.12,
+          "apply": "bleed",
+          "damage": 2,
+          "duration": 3
         }
       ],
       "sell_price": 60,
@@ -439,15 +439,15 @@
       "effects": [
         {
           "type": "stat",
-          "stat": "defense",
-          "value": 2
+          "stat": "attack",
+          "value": 5
         },
         {
           "type": "on_hit",
-          "proc": 0.08,
-          "apply": "slow",
-          "value": 0.5,
-          "duration": 1.5
+          "proc": 0.1,
+          "apply": "burn",
+          "damage": 3,
+          "duration": 2
         }
       ],
       "sell_price": 120,
@@ -473,7 +473,7 @@
         {
           "type": "stat",
           "stat": "defense",
-          "value": 4
+          "value": 2
         }
       ],
       "sell_price": 8,
@@ -498,8 +498,8 @@
       "effects": [
         {
           "type": "stat",
-          "stat": "speed",
-          "value": 10
+          "stat": "defense",
+          "value": 4
         }
       ],
       "sell_price": 8,
@@ -523,8 +523,8 @@
       "effects": [
         {
           "type": "stat",
-          "stat": "max_hp",
-          "value": 15
+          "stat": "speed",
+          "value": 10
         }
       ],
       "sell_price": 8,
@@ -550,7 +550,7 @@
         {
           "type": "stat",
           "stat": "max_hp",
-          "value": 25
+          "value": 15
         }
       ],
       "sell_price": 18,
@@ -573,11 +573,9 @@
       },
       "effects": [
         {
-          "type": "on_hit",
-          "proc": 0.12,
-          "apply": "bleed",
-          "damage": 2,
-          "duration": 3
+          "type": "stat",
+          "stat": "max_hp",
+          "value": 25
         }
       ],
       "sell_price": 18,
@@ -602,15 +600,15 @@
       "effects": [
         {
           "type": "on_hit",
-          "proc": 0.1,
-          "apply": "burn",
-          "damage": 3,
-          "duration": 2
+          "proc": 0.12,
+          "apply": "bleed",
+          "damage": 2,
+          "duration": 3
         },
         {
           "type": "stat",
-          "stat": "defense",
-          "value": 2
+          "stat": "attack",
+          "value": 3
         }
       ],
       "sell_price": 35,
@@ -634,15 +632,15 @@
       "effects": [
         {
           "type": "on_hit",
-          "proc": 0.08,
-          "apply": "slow",
-          "value": 0.5,
-          "duration": 1.5
+          "proc": 0.1,
+          "apply": "burn",
+          "damage": 3,
+          "duration": 2
         },
         {
           "type": "stat",
-          "stat": "defense",
-          "value": 4
+          "stat": "attack",
+          "value": 5
         }
       ],
       "sell_price": 60,
@@ -665,15 +663,16 @@
       },
       "effects": [
         {
-          "type": "on_kill",
-          "proc": 1.0,
-          "apply": "heal",
-          "value": 5
+          "type": "on_hit",
+          "proc": 0.08,
+          "apply": "slow",
+          "value": 0.5,
+          "duration": 1.5
         },
         {
           "type": "stat",
-          "stat": "speed",
-          "value": 10
+          "stat": "defense",
+          "value": 2
         }
       ],
       "sell_price": 120,
@@ -696,9 +695,10 @@
       },
       "effects": [
         {
-          "type": "passive",
-          "apply": "lifesteal",
-          "value": 0.05
+          "type": "on_kill",
+          "proc": 1.0,
+          "apply": "heal",
+          "value": 5
         }
       ],
       "sell_price": 8,
@@ -723,8 +723,8 @@
       "effects": [
         {
           "type": "passive",
-          "apply": "crit_chance",
-          "value": 0.08
+          "apply": "lifesteal",
+          "value": 0.05
         }
       ],
       "sell_price": 8,
@@ -747,9 +747,9 @@
       },
       "effects": [
         {
-          "type": "stat",
-          "stat": "attack",
-          "value": 3
+          "type": "passive",
+          "apply": "crit_chance",
+          "value": 0.08
         }
       ],
       "sell_price": 8,
@@ -772,9 +772,10 @@
       },
       "effects": [
         {
-          "type": "stat",
-          "stat": "attack",
-          "value": 5
+          "type": "aura",
+          "apply": "burn_aura",
+          "damage": 2,
+          "duration": 999
         }
       ],
       "sell_price": 18,
@@ -798,8 +799,8 @@
       "effects": [
         {
           "type": "stat",
-          "stat": "defense",
-          "value": 2
+          "stat": "attack",
+          "value": 3
         }
       ],
       "sell_price": 18,
@@ -824,14 +825,15 @@
       "effects": [
         {
           "type": "stat",
-          "stat": "defense",
-          "value": 4
+          "stat": "attack",
+          "value": 5
         },
         {
-          "type": "on_kill",
-          "proc": 1.0,
-          "apply": "heal",
-          "value": 5
+          "type": "on_hit",
+          "proc": 0.1,
+          "apply": "burn",
+          "damage": 3,
+          "duration": 2
         }
       ],
       "sell_price": 35,
@@ -855,13 +857,15 @@
       "effects": [
         {
           "type": "stat",
-          "stat": "speed",
-          "value": 10
+          "stat": "defense",
+          "value": 2
         },
         {
-          "type": "passive",
-          "apply": "lifesteal",
-          "value": 0.05
+          "type": "on_hit",
+          "proc": 0.08,
+          "apply": "slow",
+          "value": 0.5,
+          "duration": 1.5
         }
       ],
       "sell_price": 60,
@@ -885,13 +889,14 @@
       "effects": [
         {
           "type": "stat",
-          "stat": "max_hp",
-          "value": 15
+          "stat": "defense",
+          "value": 4
         },
         {
-          "type": "passive",
-          "apply": "crit_chance",
-          "value": 0.08
+          "type": "on_kill",
+          "proc": 1.0,
+          "apply": "heal",
+          "value": 5
         }
       ],
       "sell_price": 120,
@@ -915,8 +920,8 @@
       "effects": [
         {
           "type": "stat",
-          "stat": "max_hp",
-          "value": 25
+          "stat": "speed",
+          "value": 10
         }
       ],
       "sell_price": 8,
@@ -940,11 +945,9 @@
       },
       "effects": [
         {
-          "type": "on_hit",
-          "proc": 0.12,
-          "apply": "bleed",
-          "damage": 2,
-          "duration": 3
+          "type": "stat",
+          "stat": "max_hp",
+          "value": 15
         }
       ],
       "sell_price": 8,
@@ -967,11 +970,9 @@
       },
       "effects": [
         {
-          "type": "on_hit",
-          "proc": 0.1,
-          "apply": "burn",
-          "damage": 3,
-          "duration": 2
+          "type": "stat",
+          "stat": "max_hp",
+          "value": 25
         }
       ],
       "sell_price": 8,
@@ -995,10 +996,10 @@
       "effects": [
         {
           "type": "on_hit",
-          "proc": 0.08,
-          "apply": "slow",
-          "value": 0.5,
-          "duration": 1.5
+          "proc": 0.12,
+          "apply": "bleed",
+          "damage": 2,
+          "duration": 3
         }
       ],
       "sell_price": 18,
@@ -1021,10 +1022,11 @@
       },
       "effects": [
         {
-          "type": "on_kill",
-          "proc": 1.0,
-          "apply": "heal",
-          "value": 5
+          "type": "on_hit",
+          "proc": 0.1,
+          "apply": "burn",
+          "damage": 3,
+          "duration": 2
         }
       ],
       "sell_price": 18,
@@ -1047,14 +1049,16 @@
       },
       "effects": [
         {
-          "type": "passive",
-          "apply": "lifesteal",
-          "value": 0.05
+          "type": "on_hit",
+          "proc": 0.08,
+          "apply": "slow",
+          "value": 0.5,
+          "duration": 1.5
         },
         {
           "type": "stat",
-          "stat": "max_hp",
-          "value": 15
+          "stat": "defense",
+          "value": 2
         }
       ],
       "sell_price": 35,
@@ -1077,14 +1081,15 @@
       },
       "effects": [
         {
-          "type": "passive",
-          "apply": "crit_chance",
-          "value": 0.08
+          "type": "on_kill",
+          "proc": 1.0,
+          "apply": "heal",
+          "value": 5
         },
         {
           "type": "stat",
-          "stat": "max_hp",
-          "value": 25
+          "stat": "defense",
+          "value": 4
         }
       ],
       "sell_price": 60,
@@ -1107,16 +1112,14 @@
       },
       "effects": [
         {
-          "type": "stat",
-          "stat": "attack",
-          "value": 3
+          "type": "passive",
+          "apply": "lifesteal",
+          "value": 0.05
         },
         {
-          "type": "on_hit",
-          "proc": 0.12,
-          "apply": "bleed",
-          "damage": 2,
-          "duration": 3
+          "type": "stat",
+          "stat": "speed",
+          "value": 10
         }
       ],
       "sell_price": 120,
@@ -1139,9 +1142,9 @@
       },
       "effects": [
         {
-          "type": "stat",
-          "stat": "attack",
-          "value": 5
+          "type": "passive",
+          "apply": "crit_chance",
+          "value": 0.08
         }
       ],
       "sell_price": 8,
@@ -1164,9 +1167,10 @@
       },
       "effects": [
         {
-          "type": "stat",
-          "stat": "defense",
-          "value": 2
+          "type": "aura",
+          "apply": "burn_aura",
+          "damage": 2,
+          "duration": 999
         }
       ],
       "sell_price": 8,
@@ -1190,8 +1194,8 @@
       "effects": [
         {
           "type": "stat",
-          "stat": "defense",
-          "value": 4
+          "stat": "attack",
+          "value": 3
         }
       ],
       "sell_price": 8,
@@ -1215,8 +1219,8 @@
       "effects": [
         {
           "type": "stat",
-          "stat": "speed",
-          "value": 10
+          "stat": "attack",
+          "value": 5
         }
       ],
       "sell_price": 18,
@@ -1240,8 +1244,8 @@
       "effects": [
         {
           "type": "stat",
-          "stat": "max_hp",
-          "value": 15
+          "stat": "defense",
+          "value": 2
         }
       ],
       "sell_price": 18,
@@ -1265,13 +1269,14 @@
       "effects": [
         {
           "type": "stat",
-          "stat": "max_hp",
-          "value": 25
+          "stat": "defense",
+          "value": 4
         },
         {
-          "type": "stat",
-          "stat": "attack",
-          "value": 3
+          "type": "on_kill",
+          "proc": 1.0,
+          "apply": "heal",
+          "value": 5
         }
       ],
       "sell_price": 35,
@@ -1294,16 +1299,14 @@
       },
       "effects": [
         {
-          "type": "on_hit",
-          "proc": 0.12,
-          "apply": "bleed",
-          "damage": 2,
-          "duration": 3
+          "type": "stat",
+          "stat": "speed",
+          "value": 10
         },
         {
-          "type": "stat",
-          "stat": "attack",
-          "value": 5
+          "type": "passive",
+          "apply": "lifesteal",
+          "value": 0.05
         }
       ],
       "sell_price": 60,
@@ -1326,16 +1329,14 @@
       },
       "effects": [
         {
-          "type": "on_hit",
-          "proc": 0.1,
-          "apply": "burn",
-          "damage": 3,
-          "duration": 2
+          "type": "stat",
+          "stat": "max_hp",
+          "value": 15
         },
         {
-          "type": "stat",
-          "stat": "defense",
-          "value": 2
+          "type": "passive",
+          "apply": "crit_chance",
+          "value": 0.08
         }
       ],
       "sell_price": 120,
@@ -1358,11 +1359,9 @@
       },
       "effects": [
         {
-          "type": "on_hit",
-          "proc": 0.08,
-          "apply": "slow",
-          "value": 0.5,
-          "duration": 1.5
+          "type": "stat",
+          "stat": "max_hp",
+          "value": 25
         }
       ],
       "sell_price": 8,
@@ -1385,10 +1384,11 @@
       },
       "effects": [
         {
-          "type": "on_kill",
-          "proc": 1.0,
-          "apply": "heal",
-          "value": 5
+          "type": "on_hit",
+          "proc": 0.12,
+          "apply": "bleed",
+          "damage": 2,
+          "duration": 3
         }
       ],
       "sell_price": 8,
@@ -1411,9 +1411,11 @@
       },
       "effects": [
         {
-          "type": "passive",
-          "apply": "lifesteal",
-          "value": 0.05
+          "type": "on_hit",
+          "proc": 0.1,
+          "apply": "burn",
+          "damage": 3,
+          "duration": 2
         }
       ],
       "sell_price": 8,
@@ -1436,9 +1438,11 @@
       },
       "effects": [
         {
-          "type": "passive",
-          "apply": "crit_chance",
-          "value": 0.08
+          "type": "on_hit",
+          "proc": 0.08,
+          "apply": "slow",
+          "value": 0.5,
+          "duration": 1.5
         }
       ],
       "sell_price": 18,
@@ -1461,9 +1465,10 @@
       },
       "effects": [
         {
-          "type": "stat",
-          "stat": "attack",
-          "value": 3
+          "type": "on_kill",
+          "proc": 1.0,
+          "apply": "heal",
+          "value": 5
         }
       ],
       "sell_price": 18,
@@ -1486,16 +1491,14 @@
       },
       "effects": [
         {
-          "type": "stat",
-          "stat": "attack",
-          "value": 5
+          "type": "passive",
+          "apply": "lifesteal",
+          "value": 0.05
         },
         {
-          "type": "on_hit",
-          "proc": 0.1,
-          "apply": "burn",
-          "damage": 3,
-          "duration": 2
+          "type": "stat",
+          "stat": "speed",
+          "value": 10
         }
       ],
       "sell_price": 35,
@@ -1518,16 +1521,14 @@
       },
       "effects": [
         {
-          "type": "stat",
-          "stat": "defense",
-          "value": 2
+          "type": "passive",
+          "apply": "crit_chance",
+          "value": 0.08
         },
         {
-          "type": "on_hit",
-          "proc": 0.08,
-          "apply": "slow",
-          "value": 0.5,
-          "duration": 1.5
+          "type": "stat",
+          "stat": "max_hp",
+          "value": 15
         }
       ],
       "sell_price": 60,
@@ -1552,7 +1553,7 @@
         {
           "type": "on_use",
           "apply": "heal",
-          "value": 55
+          "value": 35
         }
       ],
       "sell_price": 120,
@@ -1576,8 +1577,9 @@
       "effects": [
         {
           "type": "on_use",
-          "apply": "heal",
-          "value": 25
+          "apply": "buff_haste",
+          "value": 45,
+          "duration": 8
         }
       ],
       "sell_price": 8,
@@ -1601,8 +1603,9 @@
       "effects": [
         {
           "type": "on_use",
-          "apply": "heal",
-          "value": 35
+          "apply": "buff_shield",
+          "value": 10,
+          "duration": 6
         }
       ],
       "sell_price": 8,
@@ -1625,9 +1628,10 @@
       },
       "effects": [
         {
-          "type": "on_use",
-          "apply": "heal",
-          "value": 45
+          "type": "on_use_aoe",
+          "apply": "bomb",
+          "damage": 55,
+          "radius": 110
         }
       ],
       "sell_price": 8,
@@ -1650,9 +1654,10 @@
       },
       "effects": [
         {
-          "type": "on_use",
-          "apply": "heal",
-          "value": 55
+          "type": "on_use_aoe",
+          "apply": "abyss_pulse",
+          "damage": 90,
+          "radius": 140
         }
       ],
       "sell_price": 18,
@@ -1677,7 +1682,7 @@
         {
           "type": "on_use",
           "apply": "heal",
-          "value": 25
+          "value": 35
         }
       ],
       "sell_price": 18,
@@ -1701,8 +1706,9 @@
       "effects": [
         {
           "type": "on_use",
-          "apply": "heal",
-          "value": 35
+          "apply": "buff_haste",
+          "value": 45,
+          "duration": 8
         }
       ],
       "sell_price": 35,
@@ -1726,8 +1732,9 @@
       "effects": [
         {
           "type": "on_use",
-          "apply": "heal",
-          "value": 45
+          "apply": "buff_shield",
+          "value": 10,
+          "duration": 6
         }
       ],
       "sell_price": 60,
@@ -1750,9 +1757,10 @@
       },
       "effects": [
         {
-          "type": "on_use",
-          "apply": "heal",
-          "value": 55
+          "type": "on_use_aoe",
+          "apply": "bomb",
+          "damage": 55,
+          "radius": 110
         }
       ],
       "sell_price": 120,
@@ -1775,9 +1783,10 @@
       },
       "effects": [
         {
-          "type": "on_use",
-          "apply": "heal",
-          "value": 25
+          "type": "on_use_aoe",
+          "apply": "abyss_pulse",
+          "damage": 90,
+          "radius": 140
         }
       ],
       "sell_price": 8,
@@ -1826,8 +1835,9 @@
       "effects": [
         {
           "type": "on_use",
-          "apply": "heal",
-          "value": 45
+          "apply": "buff_haste",
+          "value": 45,
+          "duration": 8
         }
       ],
       "sell_price": 8,
@@ -1851,8 +1861,9 @@
       "effects": [
         {
           "type": "on_use",
-          "apply": "heal",
-          "value": 55
+          "apply": "buff_shield",
+          "value": 10,
+          "duration": 6
         }
       ],
       "sell_price": 18,
@@ -1875,9 +1886,10 @@
       },
       "effects": [
         {
-          "type": "on_use",
-          "apply": "heal",
-          "value": 25
+          "type": "on_use_aoe",
+          "apply": "bomb",
+          "damage": 55,
+          "radius": 110
         }
       ],
       "sell_price": 18,
@@ -1900,9 +1912,10 @@
       },
       "effects": [
         {
-          "type": "on_use",
-          "apply": "heal",
-          "value": 35
+          "type": "on_use_aoe",
+          "apply": "abyss_pulse",
+          "damage": 90,
+          "radius": 140
         }
       ],
       "sell_price": 35,
@@ -1927,7 +1940,7 @@
         {
           "type": "on_use",
           "apply": "heal",
-          "value": 45
+          "value": 35
         }
       ],
       "sell_price": 60,
@@ -1951,8 +1964,9 @@
       "effects": [
         {
           "type": "on_use",
-          "apply": "heal",
-          "value": 55
+          "apply": "buff_haste",
+          "value": 45,
+          "duration": 8
         }
       ],
       "sell_price": 120,
@@ -1976,8 +1990,9 @@
       "effects": [
         {
           "type": "on_use",
-          "apply": "heal",
-          "value": 25
+          "apply": "buff_shield",
+          "value": 10,
+          "duration": 6
         }
       ],
       "sell_price": 8,
@@ -2000,9 +2015,10 @@
       },
       "effects": [
         {
-          "type": "on_use",
-          "apply": "heal",
-          "value": 35
+          "type": "on_use_aoe",
+          "apply": "bomb",
+          "damage": 55,
+          "radius": 110
         }
       ],
       "sell_price": 8,
@@ -2025,9 +2041,10 @@
       },
       "effects": [
         {
-          "type": "on_use",
-          "apply": "heal",
-          "value": 45
+          "type": "on_use_aoe",
+          "apply": "abyss_pulse",
+          "damage": 90,
+          "radius": 140
         }
       ],
       "sell_price": 8,
@@ -2050,10 +2067,9 @@
       },
       "effects": [
         {
-          "type": "on_kill",
-          "proc": 1.0,
-          "apply": "heal",
-          "value": 5
+          "type": "stat",
+          "stat": "max_hp",
+          "value": 15
         }
       ],
       "sell_price": 18,
@@ -2076,9 +2092,9 @@
       },
       "effects": [
         {
-          "type": "passive",
-          "apply": "lifesteal",
-          "value": 0.05
+          "type": "stat",
+          "stat": "max_hp",
+          "value": 25
         }
       ],
       "sell_price": 18,
@@ -2101,14 +2117,16 @@
       },
       "effects": [
         {
-          "type": "passive",
-          "apply": "crit_chance",
-          "value": 0.08
+          "type": "on_hit",
+          "proc": 0.12,
+          "apply": "bleed",
+          "damage": 2,
+          "duration": 3
         },
         {
           "type": "stat",
-          "stat": "max_hp",
-          "value": 25
+          "stat": "attack",
+          "value": 3
         }
       ],
       "sell_price": 35,
@@ -2131,16 +2149,16 @@
       },
       "effects": [
         {
-          "type": "stat",
-          "stat": "attack",
-          "value": 3
+          "type": "on_hit",
+          "proc": 0.1,
+          "apply": "burn",
+          "damage": 3,
+          "duration": 2
         },
         {
-          "type": "on_hit",
-          "proc": 0.12,
-          "apply": "bleed",
-          "damage": 2,
-          "duration": 3
+          "type": "stat",
+          "stat": "attack",
+          "value": 5
         }
       ],
       "sell_price": 60,
@@ -2163,16 +2181,16 @@
       },
       "effects": [
         {
-          "type": "stat",
-          "stat": "attack",
-          "value": 5
+          "type": "on_hit",
+          "proc": 0.08,
+          "apply": "slow",
+          "value": 0.5,
+          "duration": 1.5
         },
         {
-          "type": "on_hit",
-          "proc": 0.1,
-          "apply": "burn",
-          "damage": 3,
-          "duration": 2
+          "type": "stat",
+          "stat": "defense",
+          "value": 2
         }
       ],
       "sell_price": 120,
@@ -2195,9 +2213,10 @@
       },
       "effects": [
         {
-          "type": "stat",
-          "stat": "defense",
-          "value": 2
+          "type": "on_kill",
+          "proc": 1.0,
+          "apply": "heal",
+          "value": 5
         }
       ],
       "sell_price": 8,
@@ -2220,9 +2239,9 @@
       },
       "effects": [
         {
-          "type": "stat",
-          "stat": "defense",
-          "value": 4
+          "type": "passive",
+          "apply": "lifesteal",
+          "value": 0.05
         }
       ],
       "sell_price": 8,
@@ -2245,9 +2264,9 @@
       },
       "effects": [
         {
-          "type": "stat",
-          "stat": "speed",
-          "value": 10
+          "type": "passive",
+          "apply": "crit_chance",
+          "value": 0.08
         }
       ],
       "sell_price": 8,
@@ -2270,9 +2289,10 @@
       },
       "effects": [
         {
-          "type": "stat",
-          "stat": "max_hp",
-          "value": 15
+          "type": "aura",
+          "apply": "burn_aura",
+          "damage": 2,
+          "duration": 999
         }
       ],
       "sell_price": 18,
@@ -2296,8 +2316,8 @@
       "effects": [
         {
           "type": "stat",
-          "stat": "max_hp",
-          "value": 25
+          "stat": "attack",
+          "value": 3
         }
       ],
       "sell_price": 18,
@@ -2320,16 +2340,16 @@
       },
       "effects": [
         {
-          "type": "on_hit",
-          "proc": 0.12,
-          "apply": "bleed",
-          "damage": 2,
-          "duration": 3
-        },
-        {
           "type": "stat",
           "stat": "attack",
           "value": 5
+        },
+        {
+          "type": "on_hit",
+          "proc": 0.1,
+          "apply": "burn",
+          "damage": 3,
+          "duration": 2
         }
       ],
       "sell_price": 35,
@@ -2352,16 +2372,16 @@
       },
       "effects": [
         {
-          "type": "on_hit",
-          "proc": 0.1,
-          "apply": "burn",
-          "damage": 3,
-          "duration": 2
-        },
-        {
           "type": "stat",
           "stat": "defense",
           "value": 2
+        },
+        {
+          "type": "on_hit",
+          "proc": 0.08,
+          "apply": "slow",
+          "value": 0.5,
+          "duration": 1.5
         }
       ],
       "sell_price": 60,
@@ -2384,16 +2404,15 @@
       },
       "effects": [
         {
-          "type": "on_hit",
-          "proc": 0.08,
-          "apply": "slow",
-          "value": 0.5,
-          "duration": 1.5
-        },
-        {
           "type": "stat",
           "stat": "defense",
           "value": 4
+        },
+        {
+          "type": "on_kill",
+          "proc": 1.0,
+          "apply": "heal",
+          "value": 5
         }
       ],
       "sell_price": 120,
@@ -2416,10 +2435,9 @@
       },
       "effects": [
         {
-          "type": "on_kill",
-          "proc": 1.0,
-          "apply": "heal",
-          "value": 5
+          "type": "stat",
+          "stat": "speed",
+          "value": 10
         }
       ],
       "sell_price": 8,
@@ -2442,9 +2460,9 @@
       },
       "effects": [
         {
-          "type": "passive",
-          "apply": "lifesteal",
-          "value": 0.05
+          "type": "stat",
+          "stat": "max_hp",
+          "value": 15
         }
       ],
       "sell_price": 8,
@@ -2631,9 +2649,10 @@
           "value": 25
         },
         {
-          "type": "stat",
-          "stat": "attack",
-          "value": 3
+          "type": "aura",
+          "apply": "burn_aura",
+          "damage": 2,
+          "duration": 999
         }
       ],
       "sell_price": 13,
@@ -2666,7 +2685,7 @@
         {
           "type": "stat",
           "stat": "attack",
-          "value": 5
+          "value": 3
         }
       ],
       "sell_price": 13,

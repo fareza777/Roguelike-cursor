@@ -23,6 +23,7 @@ func _ready() -> void:
 	EventBus.run_ended.connect(_on_run_ended)
 	EventBus.ui_toast.connect(_show_toast)
 	EventBus.floor_changed.connect(_on_floor_changed)
+	EventBus.codex_unlocked.connect(_on_codex_unlocked)
 	if game_over_panel:
 		game_over_panel.visible = false
 	if pause_panel:
@@ -85,6 +86,10 @@ func _on_gold_changed(amount: int) -> void:
 
 func _on_item_pickup(item_data: Dictionary) -> void:
 	_show_toast("Picked up: %s" % item_data.get("name", "Item"))
+
+
+func _on_codex_unlocked(_id: String, item_data: Dictionary) -> void:
+	_show_toast("Codex: %s" % item_data.get("name", "New entry"))
 
 
 func _on_room_cleared() -> void:

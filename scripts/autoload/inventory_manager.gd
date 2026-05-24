@@ -3,7 +3,7 @@ extends Node
 
 const BAG_SIZE := 6
 
-var bag: Array = []  # null or Dictionary item
+var bag: Array = []
 var equipped: Dictionary = {
 	"weapon": null,
 	"armor": null,
@@ -42,16 +42,19 @@ func get_all_active_items() -> Array:
 func try_add_item(item_data: Dictionary) -> bool:
 	if item_data.is_empty():
 		return false
-	var itype: String = item_data.get("type", "relic")
+	var copy := item_data.duplicate(true)
+	var itype: String = copy.get("type", "relic")
 	if itype in ["weapon", "armor", "relic"] and equipped.get(itype) == null:
-		equipped[itype] = item_data.duplicate(true)
+		equipped[itype] = copy
 		equipment_changed.emit()
-		EventBus.item_equipped.emit(item_data, itype)
+		EventBus.item_equipped.emit(copy, itype)
+		CodexManager.unlock(copy)
 		return true
 	for i in BAG_SIZE:
 		if bag[i] == null:
-			bag[i] = item_data.duplicate(true)
+			bag[i] = copy
 			bag_changed.emit()
+			CodexManager.unlock(copy)
 			return true
 	return false
 
@@ -70,6 +73,7 @@ func equip_from_bag(bag_index: int) -> bool:
 	bag[bag_index] = prev
 	bag_changed.emit()
 	equipment_changed.emit()
+	SynergyManager.refresh()
 	return true
 
 
@@ -83,6 +87,7 @@ func unequip(slot_type: String) -> bool:
 			equipped[slot_type] = null
 			bag_changed.emit()
 			equipment_changed.emit()
+			SynergyManager.refresh()
 			return true
 	return false
 
@@ -93,10 +98,8 @@ func use_consumable(bag_index: int, player: Node) -> bool:
 	var item = bag[bag_index]
 	if item == null or item.get("type") != "consumable":
 		return false
-	for eff in item.get("effects", []):
-		if eff.get("type") == "on_use" and eff.get("apply") == "heal":
-			if player.has_method("heal"):
-				player.heal(float(eff.get("value", 25)))
+	EffectProcessor.use_consumable(item, player)
 	bag[bag_index] = null
 	bag_changed.emit()
+	EventBus.ui_toast.emit("Used: %s" % item.get("name", "Item"))
 	return true

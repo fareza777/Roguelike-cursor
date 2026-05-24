@@ -1,0 +1,6 @@
+rarity,drop_weight_common,drop_weight_elite,drop_weight_boss,affix_max,sell_price_base
+common,55,0,0,0,8
+uncommon,30,25,0,1,18
+rare,12,40,20,1,35
+epic,3,25,45,2,60
+legendary,0,10,35,2,120

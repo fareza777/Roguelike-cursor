@@ -5,6 +5,8 @@ var items: Dictionary = {}
 var enemies: Dictionary = {}
 var items_by_type: Dictionary = {}
 var loot_tables: Dictionary = {}
+var affixes: Array = []
+var synergy_rules: Array = []
 
 var _loaded := false
 
@@ -17,6 +19,8 @@ func reload_all() -> void:
 	_load_items()
 	_load_enemies()
 	_load_loot_tables()
+	_load_affixes()
+	_load_synergies()
 	_loaded = true
 
 
@@ -67,12 +71,40 @@ func _load_loot_tables() -> void:
 		loot_tables = parsed.get("tables", {})
 
 
+func _load_affixes() -> void:
+	affixes.clear()
+	var path := "res://data/affixes.json"
+	if not FileAccess.file_exists(path):
+		return
+	var parsed: Variant = JSON.parse_string(FileAccess.get_file_as_string(path))
+	if parsed is Dictionary:
+		affixes = parsed.get("affixes", [])
+
+
+func _load_synergies() -> void:
+	synergy_rules.clear()
+	var path := "res://data/synergies.json"
+	if not FileAccess.file_exists(path):
+		return
+	var parsed: Variant = JSON.parse_string(FileAccess.get_file_as_string(path))
+	if parsed is Dictionary:
+		synergy_rules = parsed.get("synergies", [])
+
+
 func get_item(id: String) -> Dictionary:
 	return items.get(id, {})
 
 
 func get_enemy(id: String) -> Dictionary:
 	return enemies.get(id, {})
+
+
+func get_affix_list() -> Array:
+	return affixes
+
+
+func get_synergy_rules() -> Array:
+	return synergy_rules
 
 
 func get_random_item(rarity_filter: String = "") -> Dictionary:
@@ -90,7 +122,7 @@ func get_random_item(rarity_filter: String = "") -> Dictionary:
 func roll_loot(table_id: String) -> Dictionary:
 	var entries: Array = loot_tables.get(table_id, [])
 	if entries.is_empty():
-		return get_random_item()
+		return ItemRoller.apply_random_affixes(get_random_item())
 	var total := 0
 	for e in entries:
 		total += int(e.get("weight", 1))
@@ -99,9 +131,5 @@ func roll_loot(table_id: String) -> Dictionary:
 	for e in entries:
 		acc += int(e.get("weight", 1))
 		if roll < acc:
-			return get_random_item(str(e.get("rarity", "")))
-	return get_random_item()
-
-
-func get_all_enemy_ids() -> Array:
-	return enemies.keys()
+			return ItemRoller.apply_random_affixes(get_random_item(str(e.get("rarity", ""))))
+	return ItemRoller.apply_random_affixes(get_random_item())

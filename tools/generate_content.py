@@ -76,6 +76,14 @@ TAG_POOLS = {
     "material": [["craft"]],
 }
 
+CONSUMABLE_EFFECTS = [
+    {"type": "on_use", "apply": "heal", "value": 35},
+    {"type": "on_use", "apply": "buff_haste", "value": 45, "duration": 8},
+    {"type": "on_use", "apply": "buff_shield", "value": 10, "duration": 6},
+    {"type": "on_use_aoe", "apply": "bomb", "damage": 55, "radius": 110},
+    {"type": "on_use_aoe", "apply": "abyss_pulse", "damage": 90, "radius": 140},
+]
+
 EFFECT_POOL = [
     {"type": "stat", "stat": "attack", "value": 3},
     {"type": "stat", "stat": "attack", "value": 5},
@@ -90,6 +98,7 @@ EFFECT_POOL = [
     {"type": "on_kill", "proc": 1.0, "apply": "heal", "value": 5},
     {"type": "passive", "apply": "lifesteal", "value": 0.05},
     {"type": "passive", "apply": "crit_chance", "value": 0.08},
+    {"type": "aura", "apply": "burn_aura", "damage": 2, "duration": 999},
 ]
 
 
@@ -130,7 +139,7 @@ def gen_items() -> list:
                 stats["defense"] = 2 + (i % 8)
                 stats["max_hp"] = (i % 5) * 5
             elif itype == "consumable":
-                effects = [{"type": "on_use", "apply": "heal", "value": 25 + (i % 4) * 10}]
+                effects = [CONSUMABLE_EFFECTS[j % len(CONSUMABLE_EFFECTS)]]
             sid = name.lower().replace(" ", "_").replace("(", "").replace(")", "").replace("'", "")[:40]
             items.append({
                 "id": f"{itype}_{sid}",

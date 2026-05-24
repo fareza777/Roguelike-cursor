@@ -32,6 +32,7 @@ Kau adalah **Penjaga Veil** — terjebak di dungeon yang berubah setiap run. Kum
 | Space | Dodge (i-frames) |
 | E | Pickup, portal, shop, rest |
 | Tab | Inventory (6 slot + equip) |
+| C | Codex (100 lore, unlock progresif) |
 | Esc | Pause |
 
 ## Struktur Repo
@@ -50,7 +51,7 @@ Kau adalah **Penjaga Veil** — terjebak di dungeon yang berubah setiap run. Kum
 
 Lihat **[ROADMAP.md](ROADMAP.md)** untuk fase pengembangan lengkap (Fase 0 fondasi → Play Store → live ops).
 
-**Fase saat ini:** Fase 1 — run 3 lantai, dungeon graph, inventory 6 slot.
+**Fase saat ini:** Fase 2 — affix, sinergi, codex, consumable lengkap.
 
 ## Menambah Item / Musuh
 

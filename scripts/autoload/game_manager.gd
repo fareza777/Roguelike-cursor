@@ -31,6 +31,7 @@ func start_run() -> void:
 	run_time_sec = 0.0
 	state = GameState.RUN
 	InventoryManager.reset()
+	SynergyManager.refresh()
 	EventBus.run_started.emit()
 
 

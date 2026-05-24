@@ -1,0 +1,17 @@
+{
+  "data_version": 1,
+  "affixes": [
+    { "id": "sharp", "name": "Sharp", "tags_add": ["crit"], "effects": [{ "type": "stat", "stat": "attack", "value": 3 }] },
+    { "id": "sturdy", "name": "Sturdy", "tags_add": ["defense"], "effects": [{ "type": "stat", "stat": "defense", "value": 2 }] },
+    { "id": "swift", "name": "Swift", "tags_add": ["speed"], "effects": [{ "type": "stat", "stat": "speed", "value": 12 }] },
+    { "id": "vital", "name": "Vital", "tags_add": ["hp"], "effects": [{ "type": "stat", "stat": "max_hp", "value": 18 }] },
+    { "id": "of_embers", "name": "of Embers", "tags_add": ["fire"], "effects": [{ "type": "on_hit", "proc": 0.1, "apply": "burn", "damage": 3, "duration": 2.5 }] },
+    { "id": "of_thorns", "name": "of Thorns", "tags_add": ["bleed"], "effects": [{ "type": "on_hit", "proc": 0.14, "apply": "bleed", "damage": 2, "duration": 3 }] },
+    { "id": "hollow", "name": "Hollow", "tags_add": ["summon"], "effects": [{ "type": "passive", "apply": "crit_chance", "value": 0.06 }] },
+    { "id": "veilbound", "name": "Veilbound", "tags_add": ["void"], "effects": [{ "type": "on_kill", "proc": 1.0, "apply": "heal", "value": 4 }] },
+    { "id": "predator", "name": "Predator", "tags_add": ["crit", "melee"], "effects": [{ "type": "passive", "apply": "lifesteal", "value": 0.04 }] },
+    { "id": "frosted", "name": "Frosted", "tags_add": ["frost"], "effects": [{ "type": "on_hit", "proc": 0.09, "apply": "slow", "value": 0.45, "duration": 1.8 }] },
+    { "id": "storm", "name": "Storm-Touched", "tags_add": ["lightning"], "effects": [{ "type": "proc", "proc": 0.07, "apply": "chain_damage", "damage": 8, "targets": 2 }] },
+    { "id": "penitent", "name": "Penitent", "tags_add": ["defense"], "effects": [{ "type": "on_damaged", "proc": 0.2, "apply": "reflect", "damage": 5 }] }
+  ]
+}

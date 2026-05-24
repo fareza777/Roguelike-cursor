@@ -4,10 +4,13 @@ const DODGE_SPEED := 520.0
 const DODGE_DURATION := 0.22
 const DODGE_COOLDOWN := 0.85
 const ATTACK_COOLDOWN := 0.35
+const AURA_TICK := 0.55
 
 var _dodge_timer := 0.0
 var _dodge_cd := 0.0
 var _attack_cd := 0.0
+var _aura_timer := 0.0
+var _temp_buffs: Array = []  # { id, time_left, mods: Dictionary }
 
 @onready var weapon_ctrl: Node = $WeaponController
 @onready var camera: Camera2D = $Camera2D
@@ -20,6 +23,7 @@ func _ready() -> void:
 	_give_starter_loadout()
 	InventoryManager.equipment_changed.connect(_recalc_stats)
 	InventoryManager.bag_changed.connect(_recalc_stats)
+	SynergyManager.synergies_updated.connect(_recalc_stats)
 	EventBus.enemy_killed.connect(_on_enemy_killed_global)
 
 
@@ -34,14 +38,17 @@ func _give_starter_loadout() -> void:
 
 func _recalc_stats() -> void:
 	var items := InventoryManager.get_all_active_items()
-	var base := {
-		"attack": 8, "defense": 2, "speed": 0, "max_hp": 100
-	}
-	var mods := EffectProcessor.apply_stat_modifiers(base, items)
-	attack_power = float(mods.get("attack", 8))
-	defense = float(mods.get("defense", 2))
-	move_speed = 200.0 + float(mods.get("speed", 0))
-	var new_max := float(mods.get("max_hp", 100))
+	var syn := SynergyManager.get_bonus()
+	var base := { "attack": 8, "defense": 2, "speed": 0, "max_hp": 100 }
+	for buff in _temp_buffs:
+		var mods: Dictionary = buff.get("mods", {})
+		for k in mods:
+			base[k] = base.get(k, 0) + int(mods[k])
+	var stat_mods := EffectProcessor.apply_stat_modifiers(base, items, syn)
+	attack_power = float(stat_mods.get("attack", 8))
+	defense = float(stat_mods.get("defense", 2))
+	move_speed = 200.0 + float(stat_mods.get("speed", 0))
+	var new_max := float(stat_mods.get("max_hp", 100))
 	if new_max != max_hp:
 		var ratio := current_hp / maxf(1.0, max_hp)
 		max_hp = new_max
@@ -49,9 +56,17 @@ func _recalc_stats() -> void:
 	_update_health_bar()
 
 
+func add_temp_buff(buff_id: String, duration: float, mods: Dictionary) -> void:
+	_temp_buffs.append({ "id": buff_id, "time_left": duration, "mods": mods })
+	_recalc_stats()
+	EventBus.ui_toast.emit("Buff: %s" % buff_id)
+
+
 func _physics_process(delta: float) -> void:
 	if is_dead:
 		return
+	_tick_temp_buffs(delta)
+	_tick_auras(delta)
 	_dodge_cd = maxf(0.0, _dodge_cd - delta)
 	_attack_cd = maxf(0.0, _attack_cd - delta)
 	if _dodge_timer > 0.0:
@@ -67,6 +82,30 @@ func _physics_process(delta: float) -> void:
 		_start_dodge(input_dir)
 	if Input.is_action_pressed("attack") and _attack_cd <= 0.0:
 		_try_attack()
+
+
+func _tick_temp_buffs(delta: float) -> void:
+	var changed := false
+	var keep: Array = []
+	for buff in _temp_buffs:
+		buff["time_left"] = float(buff.get("time_left", 0)) - delta
+		if buff["time_left"] > 0:
+			keep.append(buff)
+		else:
+			changed = true
+	if keep.size() != _temp_buffs.size():
+		_temp_buffs = keep
+		if changed:
+			_recalc_stats()
+
+
+func _tick_auras(delta: float) -> void:
+	_aura_timer -= delta
+	if _aura_timer > 0.0:
+		return
+	_aura_timer = AURA_TICK
+	var items := InventoryManager.get_all_active_items()
+	EffectProcessor.tick_auras(items, self)
 
 
 func _start_dodge(dir: Vector2) -> void:
@@ -92,6 +131,9 @@ func _try_attack() -> void:
 
 func take_damage(amount: float, source: Node = null, tags: Array = []) -> void:
 	super.take_damage(amount, source, tags)
+	var items := InventoryManager.get_all_active_items()
+	if source:
+		EffectProcessor.apply_on_damaged(items, source, self)
 	EventBus.player_damaged.emit(amount, source)
 	if current_hp <= 0.0:
 		GameManager.end_run(false)
@@ -102,16 +144,21 @@ func _on_death() -> void:
 
 
 func _on_enemy_killed_global(_enemy: Node, killer: Node) -> void:
-	if killer == self:
-		var mods := EffectProcessor.get_passive_modifiers(InventoryManager.get_all_active_items())
-		if mods.get("lifesteal", 0.0) > 0.0:
-			heal(3.0)
+	if killer != self:
+		return
+	var items := InventoryManager.get_all_active_items()
+	var syn := SynergyManager.get_bonus()
+	EffectProcessor.apply_on_kill(items, self, syn)
+	var mods := EffectProcessor.get_passive_modifiers(items, syn)
+	if mods.get("lifesteal", 0.0) > 0.0:
+		heal(3.0 + mods.get("on_kill_heal", 0.0))
 
 
 func add_item(item_data: Dictionary) -> void:
 	if item_data.is_empty():
 		return
 	if InventoryManager.try_add_item(item_data):
+		CodexManager.unlock(item_data)
 		_recalc_stats()
 		EventBus.item_picked_up.emit(item_data)
 	else:
@@ -126,6 +173,8 @@ func _input(event: InputEvent) -> void:
 			GameManager.pause_game()
 		elif GameManager.state == GameManager.GameState.PAUSED:
 			GameManager.resume_game()
+
+
 func _try_interact() -> void:
 	var portal = get_meta("near_exit", null)
 	if portal != null and portal.has_method("activate"):

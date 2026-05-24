@@ -1,0 +1,17 @@
+{
+  "data_version": 1,
+  "synergies": [
+    { "id": "kindling", "tags": ["fire"], "count": 2, "label": "Kindling", "bonus": { "attack_pct": 0.12 } },
+    { "id": "inferno", "tags": ["fire"], "count": 3, "label": "Inferno", "bonus": { "burn_bonus": 2 } },
+    { "id": "hemorrhage", "tags": ["bleed"], "count": 2, "label": "Hemorrhage", "bonus": { "bleed_bonus": 1 } },
+    { "id": "assassin", "tags": ["crit"], "count": 2, "label": "Assassin", "bonus": { "crit_chance": 0.1 } },
+    { "id": "executioner", "tags": ["crit"], "count": 3, "label": "Executioner", "bonus": { "crit_damage_pct": 0.35 } },
+    { "id": "bulwark", "tags": ["defense"], "count": 2, "label": "Bulwark", "bonus": { "defense": 4 } },
+    { "id": "phantom", "tags": ["speed"], "count": 2, "label": "Phantom Step", "bonus": { "speed": 25 } },
+    { "id": "void_touched", "tags": ["void"], "count": 2, "label": "Void Touched", "bonus": { "lifesteal": 0.06 } },
+    { "id": "frostbound", "tags": ["frost"], "count": 2, "label": "Frostbound", "bonus": { "slow_bonus": 0.2 } },
+    { "id": "conductor", "tags": ["lightning"], "count": 2, "label": "Conductor", "bonus": { "chain_bonus": 4 } },
+    { "id": "pack_hunter", "tags": ["melee"], "count": 3, "label": "Pack Hunter", "bonus": { "attack_pct": 0.08 } },
+    { "id": "grave_pact", "tags": ["summon"], "count": 2, "label": "Grave Pact", "bonus": { "on_kill_heal": 3 } }
+  ]
+}

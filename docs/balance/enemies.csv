@@ -1,0 +1,4 @@
+tier,loot_chance,loot_table,gold_min,gold_max
+normal,0.40,common_tier1,2,8
+elite,0.58,elite_drop,5,14
+boss,1.00,boss_drop,12,28

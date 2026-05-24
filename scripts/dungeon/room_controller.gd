@@ -113,7 +113,7 @@ func _collect_spawn_points() -> Array[Vector2]:
 func _prepare_shop() -> void:
 	_shop_stock.clear()
 	for _i in 3:
-		_shop_stock.append(DataManager.roll_loot("shop_pool"))
+		_shop_stock.append(ItemRoller.roll_item_from_loot("shop_pool"))
 
 
 func open_exit() -> void:
@@ -145,7 +145,7 @@ func _shop_interact(player: Node) -> bool:
 		open_exit()
 		return true
 	var item: Dictionary = _shop_stock[0]
-	var price: int = int(item.get("sell_price", 15)) * 2
+	var price: int = ShopPricing.get_buy_price(item, GameManager.floor_num)
 	if GameManager.gold < price:
 		EventBus.ui_toast.emit("Not enough gold (%d)" % price)
 		return true
