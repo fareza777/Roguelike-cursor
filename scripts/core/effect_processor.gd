@@ -98,7 +98,7 @@ static func apply_on_damaged(item_list: Array, attacker: Node, victim: Node) -> 
 static func tick_auras(item_list: Array, player: Node, radius: float = 90.0) -> void:
 	for eff in _collect_by_type(item_list, "aura"):
 		if eff.get("apply") == "burn_aura":
-			_damage_enemies_in_radius(player, radius, float(eff.get("damage", 2)), player)
+			damage_enemies_in_radius(player, radius, float(eff.get("damage", 2)), player)
 
 
 static func use_consumable(item: Dictionary, player: Node) -> bool:
