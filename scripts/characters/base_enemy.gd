@@ -157,9 +157,15 @@ func die() -> void:
 
 
 func _spawn_loot() -> void:
-	if randf() > 0.45:
+	var tier: String = _data.get("tier", "normal")
+	var chance := 0.4
+	match tier:
+		"elite": chance = 0.58
+		"boss": chance = 1.0
+	if randf() > chance:
 		return
-	var item_data := DataManager.get_random_item()
+	var table_id: String = _data.get("loot_table", "common_tier1")
+	var item_data := DataManager.roll_loot(table_id)
 	var pickup_scene := preload("res://scenes/items/ItemPickup.tscn")
 	var pickup := pickup_scene.instantiate()
 	pickup.item_data = item_data

@@ -1,0 +1,28 @@
+{
+  "data_version": 1,
+  "tables": {
+    "common_tier1": [
+      { "weight": 55, "rarity": "common" },
+      { "weight": 30, "rarity": "uncommon" },
+      { "weight": 12, "rarity": "rare" },
+      { "weight": 3, "rarity": "epic" }
+    ],
+    "elite_drop": [
+      { "weight": 25, "rarity": "uncommon" },
+      { "weight": 40, "rarity": "rare" },
+      { "weight": 25, "rarity": "epic" },
+      { "weight": 10, "rarity": "legendary" }
+    ],
+    "boss_drop": [
+      { "weight": 20, "rarity": "rare" },
+      { "weight": 45, "rarity": "epic" },
+      { "weight": 35, "rarity": "legendary" }
+    ],
+    "shop_pool": [
+      { "weight": 40, "rarity": "common" },
+      { "weight": 35, "rarity": "uncommon" },
+      { "weight": 20, "rarity": "rare" },
+      { "weight": 5, "rarity": "epic" }
+    ]
+  }
+}

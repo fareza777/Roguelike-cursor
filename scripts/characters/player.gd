@@ -5,7 +5,6 @@ const DODGE_DURATION := 0.22
 const DODGE_COOLDOWN := 0.85
 const ATTACK_COOLDOWN := 0.35
 
-var equipped_items: Array = []  # item dicts
 var _dodge_timer := 0.0
 var _dodge_cd := 0.0
 var _attack_cd := 0.0
@@ -18,8 +17,9 @@ var _attack_cd := 0.0
 func _ready() -> void:
 	super._ready()
 	add_to_group("player")
-	GameManager.start_run()
 	_give_starter_loadout()
+	InventoryManager.equipment_changed.connect(_recalc_stats)
+	InventoryManager.bag_changed.connect(_recalc_stats)
 	EventBus.enemy_killed.connect(_on_enemy_killed_global)
 
 
@@ -28,15 +28,16 @@ func _give_starter_loadout() -> void:
 	if starter.is_empty():
 		starter = DataManager.get_random_item()
 	if not starter.is_empty():
-		equipped_items.append(starter)
+		InventoryManager.try_add_item(starter)
 	_recalc_stats()
 
 
 func _recalc_stats() -> void:
+	var items := InventoryManager.get_all_active_items()
 	var base := {
 		"attack": 8, "defense": 2, "speed": 0, "max_hp": 100
 	}
-	var mods := EffectProcessor.apply_stat_modifiers(base, equipped_items)
+	var mods := EffectProcessor.apply_stat_modifiers(base, items)
 	attack_power = float(mods.get("attack", 8))
 	defense = float(mods.get("defense", 2))
 	move_speed = 200.0 + float(mods.get("speed", 0))
@@ -83,8 +84,9 @@ func _try_attack() -> void:
 	var aim := (get_global_mouse_position() - global_position).normalized()
 	if aim.length_squared() < 0.01:
 		aim = Vector2.RIGHT.rotated(rotation)
+	var items := InventoryManager.get_all_active_items()
 	if weapon_ctrl and weapon_ctrl.has_method("perform_melee"):
-		weapon_ctrl.perform_melee(aim, attack_power, equipped_items)
+		weapon_ctrl.perform_melee(aim, attack_power, items)
 	AudioManager.play_sfx("attack")
 
 
@@ -97,13 +99,11 @@ func take_damage(amount: float, source: Node = null, tags: Array = []) -> void:
 
 func _on_death() -> void:
 	GameManager.end_run(false)
-	await get_tree().create_timer(1.5).timeout
-	# Game over UI handles restart
 
 
 func _on_enemy_killed_global(_enemy: Node, killer: Node) -> void:
 	if killer == self:
-		var mods := EffectProcessor.get_passive_modifiers(equipped_items)
+		var mods := EffectProcessor.get_passive_modifiers(InventoryManager.get_all_active_items())
 		if mods.get("lifesteal", 0.0) > 0.0:
 			heal(3.0)
 
@@ -111,19 +111,31 @@ func _on_enemy_killed_global(_enemy: Node, killer: Node) -> void:
 func add_item(item_data: Dictionary) -> void:
 	if item_data.is_empty():
 		return
-	equipped_items.append(item_data)
-	_recalc_stats()
-	EventBus.item_picked_up.emit(item_data)
+	if InventoryManager.try_add_item(item_data):
+		_recalc_stats()
+		EventBus.item_picked_up.emit(item_data)
+	else:
+		EventBus.ui_toast.emit("Inventory full!")
 
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact"):
-		_try_pickup()
+		_try_interact()
 	if event.is_action_pressed("pause"):
 		if GameManager.state == GameManager.GameState.RUN:
 			GameManager.pause_game()
 		elif GameManager.state == GameManager.GameState.PAUSED:
 			GameManager.resume_game()
+func _try_interact() -> void:
+	var portal = get_meta("near_exit", null)
+	if portal != null and portal.has_method("activate"):
+		portal.activate(self)
+		return
+	var room := get_tree().get_first_node_in_group("active_room")
+	if room and room.has_method("try_room_interact"):
+		if room.try_room_interact(self):
+			return
+	_try_pickup()
 
 
 func _try_pickup() -> void:

@@ -1,5 +1,5 @@
 extends Node
-## Run state, pause, meta progression hooks (Fase 5).
+## Run state, pause, floor/room tracking.
 
 enum GameState { MENU, RUN, PAUSED, GAME_OVER, VICTORY }
 
@@ -9,6 +9,10 @@ var gold: int = 0
 var enemies_remaining: int = 0
 var run_time_sec: float = 0.0
 var kills_this_run: int = 0
+var rooms_cleared_total: int = 0
+var current_room_label: String = ""
+var current_room_index: int = 0
+var rooms_on_floor: int = 0
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -23,9 +27,19 @@ func start_run() -> void:
 	floor_num = 1
 	gold = 0
 	kills_this_run = 0
+	rooms_cleared_total = 0
 	run_time_sec = 0.0
 	state = GameState.RUN
+	InventoryManager.reset()
 	EventBus.run_started.emit()
+
+
+func set_current_room(cfg: Dictionary, floor: int, room_idx: int, total_rooms: int) -> void:
+	floor_num = floor
+	current_room_index = room_idx
+	rooms_on_floor = total_rooms
+	current_room_label = cfg.get("label", cfg.get("type", ""))
+	EventBus.floor_changed.emit(floor_num)
 
 
 func add_gold(amount: int) -> void:
@@ -61,6 +75,7 @@ func resume_game() -> void:
 func end_run(victory: bool) -> void:
 	state = GameState.VICTORY if victory else GameState.GAME_OVER
 	get_tree().paused = false
+	SaveManager.clear_run_save()
 	EventBus.run_ended.emit(victory)
 
 

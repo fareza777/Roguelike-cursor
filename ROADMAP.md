@@ -7,7 +7,7 @@
 
 ---
 
-## Fase 0 — Fondasi & Vertical Slice (Minggu 1–4) ✅ *sedang dibangun*
+## Fase 0 — Fondasi & Vertical Slice (Minggu 1–4) ✅ *selesai*
 
 | Deliverable | Status |
 |-------------|--------|
@@ -23,15 +23,15 @@
 
 ---
 
-## Fase 1 — Core Loop Roguelike (Minggu 5–10)
+## Fase 1 — Core Loop Roguelike (Minggu 5–10) ✅ *selesai (v0.2)*
 
-- [ ] **Dungeon generator:** graph ruangan (start → combat → shop → boss → exit)
-- [ ] **5 tipe ruangan:** combat, elite, shop, rest, boss (layout tile + props)
-- [ ] **Floor progression:** 3 lantai demo → skala ke 6+ lantai
-- [ ] **Permadeath run** + statistik run di layar game over
-- [ ] **Inventory 6 slot** + equip weapon/armor/relic
-- [ ] **Pickup & drop** dari musuh (weighted loot table per musuh)
-- [ ] **Save run** (suspend) — opsional Fase 1 akhir
+- [x] **Dungeon generator:** graph ruangan (start → combat → shop → boss → exit)
+- [x] **5 tipe ruangan:** combat, elite, shop, rest, boss (layout tile + props)
+- [x] **Floor progression:** 3 lantai demo → skala ke 6+ lantai
+- [x] **Permadeath run** + statistik run di layar game over
+- [x] **Inventory 6 slot** + equip weapon/armor/relic
+- [x] **Pickup & drop** dari musuh (weighted loot table per musuh)
+- [x] **Save run** (suspend) — stub `SaveManager` tiap ganti ruangan
 
 **Exit criteria:** Run lengkap 15–25 menit, 3 floor, boss floor 3.
 

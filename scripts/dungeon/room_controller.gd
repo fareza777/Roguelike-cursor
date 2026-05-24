@@ -1,57 +1,85 @@
 extends Node2D
-## Manages spawns, clear state, and room boundaries.
+## Room instance — configured per dungeon graph node.
 
-@export var enemy_ids: Array[String] = ["slime_void", "bat_carrion", "rat_bonegnaw"]
+@export var enemy_ids: Array[String] = []
 @export var spawn_count: int = 5
+
+var _config: Dictionary = {}
+var _exit_open := false
+var _shop_stock: Array = []
+var _rest_used := false
 
 @onready var spawn_points: Node2D = $SpawnPoints
 @onready var enemies_container: Node2D = $Enemies
-@onready var floor_layer: TileMapLayer = $FloorLayer
-@onready var walls_layer: TileMapLayer = $WallsLayer
+@onready var floor_poly: Polygon2D = $Floor
+@onready var room_title: Label = $RoomTitle
+@onready var interact_zone: Area2D = $InteractZone
+@onready var exits_container: Node2D = $Exits
 
 const ENEMY_SCENE := preload("res://scenes/enemies/EnemyBase.tscn")
+const EXIT_SCENE := preload("res://scenes/dungeon/ExitPortal.tscn")
 
 
 func _ready() -> void:
-	_build_room_visuals()
-	_spawn_enemies()
-	EventBus.room_cleared.connect(_on_room_cleared)
+	if interact_zone:
+		interact_zone.body_entered.connect(_on_interact_zone_body)
 
 
-func _build_room_visuals() -> void:
-	# Procedural tile paint for Fase 0 — replaced by atlas Fase 4
-	if not floor_layer:
+func configure(cfg: Dictionary) -> void:
+	add_to_group("active_room")
+	_config = cfg
+	var rt: String = cfg.get("type", "combat")
+	enemy_ids = cfg.get("enemy_ids", []) as Array[String]
+	spawn_count = int(cfg.get("spawn_count", 5))
+	if room_title:
+		room_title.text = cfg.get("label", rt.capitalize())
+	_apply_theme(rt)
+	match rt:
+		"start", "exit":
+			GameManager.set_enemies_remaining(0)
+			call_deferred("open_exit")
+		"shop":
+			_prepare_shop()
+			GameManager.set_enemies_remaining(0)
+		"rest":
+			GameManager.set_enemies_remaining(0)
+		"boss":
+			_spawn_boss()
+		"elite", "combat":
+			_spawn_enemies()
+		_:
+			_spawn_enemies()
+
+
+func _apply_theme(rt: String) -> void:
+	if not floor_poly:
 		return
-	var source_id := 0
-	for x in range(-12, 13):
-		for y in range(-8, 9):
-			var atlas := Vector2i(randi() % 3, 0)
-			floor_layer.set_cell(Vector2i(x, y), source_id, atlas)
-	if walls_layer:
-		for x in range(-13, 14):
-			walls_layer.set_cell(Vector2i(x, -9), source_id, Vector2i(3, 0))
-			walls_layer.set_cell(Vector2i(x, 9), source_id, Vector2i(3, 0))
-		for y in range(-9, 10):
-			walls_layer.set_cell(Vector2i(-13, y), source_id, Vector2i(3, 0))
-			walls_layer.set_cell(Vector2i(13, y), source_id, Vector2i(3, 0))
+	match rt:
+		"elite":
+			floor_poly.modulate = Color(1.0, 0.75, 0.75)
+		"shop":
+			floor_poly.modulate = Color(1.0, 0.95, 0.7)
+		"rest":
+			floor_poly.modulate = Color(0.75, 1.0, 0.85)
+		"boss":
+			floor_poly.modulate = Color(0.85, 0.75, 1.0)
+		"exit":
+			floor_poly.modulate = Color(0.7, 0.85, 1.0)
+		_:
+			floor_poly.modulate = Color.WHITE
 
 
 func _spawn_enemies() -> void:
-	var points: Array[Vector2] = []
-	if spawn_points:
-		for child in spawn_points.get_children():
-			if child is Marker2D:
-				points.append(child.global_position)
-	if points.is_empty():
-		for _i in spawn_count:
-			points.append(global_position + Vector2(randf_range(-200, 200), randf_range(-120, 120)))
+	var points: Array[Vector2] = _collect_spawn_points()
 	var count := spawn_count
+	if count <= 0:
+		count = 4
 	if points.size() > 0:
-		count = mini(spawn_count, points.size())
+		count = mini(count, points.size())
 	GameManager.set_enemies_remaining(count)
 	for i in count:
 		var e := ENEMY_SCENE.instantiate()
-		var eid: String = enemy_ids[randi() % enemy_ids.size()] if enemy_ids.size() > 0 else "slime_void"
+		var eid: String = enemy_ids[randi() % maxi(1, enemy_ids.size())] if enemy_ids.size() > 0 else "slime_void"
 		e.enemy_id = eid
 		enemies_container.add_child(e)
 		if points.size() > i:
@@ -60,5 +88,95 @@ func _spawn_enemies() -> void:
 			e.global_position = global_position + Vector2(randf_range(-180, 180), randf_range(-100, 100))
 
 
-func _on_room_cleared() -> void:
-	AudioManager.play_sfx("room_clear")
+func _spawn_boss() -> void:
+	var boss_id: String = _config.get("boss_id", "boss_warden")
+	var e := ENEMY_SCENE.instantiate()
+	e.enemy_id = boss_id
+	enemies_container.add_child(e)
+	var pts := _collect_spawn_points()
+	if pts.size() > 0:
+		e.global_position = pts[0]
+	else:
+		e.global_position = global_position + Vector2(0, -80)
+	GameManager.set_enemies_remaining(1)
+
+
+func _collect_spawn_points() -> Array[Vector2]:
+	var points: Array[Vector2] = []
+	if spawn_points:
+		for child in spawn_points.get_children():
+			if child is Marker2D:
+				points.append(child.global_position)
+	return points
+
+
+func _prepare_shop() -> void:
+	_shop_stock.clear()
+	for _i in 3:
+		_shop_stock.append(DataManager.roll_loot("shop_pool"))
+
+
+func open_exit() -> void:
+	if _exit_open:
+		return
+	_exit_open = true
+	var portal := EXIT_SCENE.instantiate()
+	portal.global_position = Vector2(340, 180)
+	if exits_container:
+		exits_container.add_child(portal)
+	else:
+		add_child(portal)
+	if _config.get("type") == "exit":
+		portal.portal_label = "Descend to next floor"
+
+
+func try_room_interact(player: Node) -> bool:
+	var rt: String = _config.get("type", "")
+	match rt:
+		"shop":
+			return _shop_interact(player)
+		"rest":
+			return _rest_interact(player)
+	return false
+
+
+func _shop_interact(player: Node) -> bool:
+	if _shop_stock.is_empty():
+		open_exit()
+		return true
+	var item: Dictionary = _shop_stock[0]
+	var price: int = int(item.get("sell_price", 15)) * 2
+	if GameManager.gold < price:
+		EventBus.ui_toast.emit("Not enough gold (%d)" % price)
+		return true
+	if InventoryManager.try_add_item(item):
+		GameManager.gold -= price
+		EventBus.gold_changed.emit(GameManager.gold)
+		_shop_stock.remove_at(0)
+		EventBus.ui_toast.emit("Bought: %s" % item.get("name", ""))
+		if _shop_stock.is_empty():
+			open_exit()
+	else:
+		EventBus.ui_toast.emit("Inventory full!")
+	return true
+
+
+func _rest_interact(player: Node) -> bool:
+	if _rest_used:
+		EventBus.ui_toast.emit("Already rested here.")
+		return true
+	_rest_used = true
+	if player.has_method("heal"):
+		player.heal(player.max_hp * 0.4)
+	EventBus.ui_toast.emit("Rested — recovered 40% HP")
+	open_exit()
+	return true
+
+
+func _on_interact_zone_body(body: Node2D) -> void:
+	if body.is_in_group("player"):
+		body.set_meta("in_room_interact", true)
+
+
+func get_config() -> Dictionary:
+	return _config

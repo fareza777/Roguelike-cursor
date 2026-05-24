@@ -4,6 +4,7 @@ extends CanvasLayer
 @onready var hp_label: Label = $Margin/HBox/HPLabel
 @onready var gold_label: Label = $Margin/TopRight/GoldLabel
 @onready var floor_label: Label = $Margin/TopRight/FloorLabel
+@onready var room_label: Label = $Margin/TopRight/RoomLabel
 @onready var enemy_label: Label = $Margin/TopRight/EnemyLabel
 @onready var toast: Label = $Toast
 @onready var pause_panel: Panel = $PausePanel
@@ -18,7 +19,10 @@ func _ready() -> void:
 	EventBus.gold_changed.connect(_on_gold_changed)
 	EventBus.item_picked_up.connect(_on_item_pickup)
 	EventBus.room_cleared.connect(_on_room_cleared)
+	EventBus.room_entered.connect(_on_room_entered)
 	EventBus.run_ended.connect(_on_run_ended)
+	EventBus.ui_toast.connect(_show_toast)
+	EventBus.floor_changed.connect(_on_floor_changed)
 	if game_over_panel:
 		game_over_panel.visible = false
 	if pause_panel:
@@ -36,13 +40,33 @@ func _process(_delta: float) -> void:
 
 func _refresh() -> void:
 	_on_gold_changed(GameManager.gold)
+	_on_floor_changed(GameManager.floor_num)
+	if room_label:
+		room_label.text = GameManager.current_room_label
+
+
+func _on_floor_changed(f: int) -> void:
 	if floor_label:
-		floor_label.text = "Floor %d" % GameManager.floor_num
+		floor_label.text = "Floor %d" % f
+
+
+func _on_room_entered(cfg: Dictionary) -> void:
+	if room_label:
+		room_label.text = cfg.get("label", "")
+	var rt: String = cfg.get("type", "")
+	if rt == "shop":
+		_show_toast("Press E near center — buy items with gold")
+	elif rt == "rest":
+		_show_toast("Press E to rest (heal 40%)")
 
 
 func _refresh_enemy_count() -> void:
 	if enemy_label:
-		enemy_label.text = "Enemies: %d" % GameManager.enemies_remaining
+		var rt := GameManager.current_room_label
+		if GameManager.enemies_remaining <= 0 and rt != "":
+			enemy_label.text = "Room %d/%d" % [GameManager.current_room_index, GameManager.rooms_on_floor]
+		else:
+			enemy_label.text = "Enemies: %d" % GameManager.enemies_remaining
 
 
 func _on_player_damaged(_amount: float, _source: Node) -> void:
@@ -64,7 +88,7 @@ func _on_item_pickup(item_data: Dictionary) -> void:
 
 
 func _on_room_cleared() -> void:
-	_show_toast("Room cleared!")
+	_show_toast("Room cleared — find the exit portal")
 
 
 func _on_run_ended(victory: bool) -> void:
@@ -72,11 +96,14 @@ func _on_run_ended(victory: bool) -> void:
 		game_over_panel.visible = true
 		var title := game_over_panel.get_node_or_null("VBox/Title")
 		if title:
-			title.text = "Victory!" if victory else "Veil Claims You"
+			title.text = "Veil Conquered!" if victory else "Veil Claims You"
 		var stats := game_over_panel.get_node_or_null("VBox/Stats")
 		if stats:
-			stats.text = "Kills: %d | Gold: %d | Time: %ds" % [
-				GameManager.kills_this_run, GameManager.gold, int(GameManager.run_time_sec)
+			stats.text = "Kills: %d | Gold: %d | Rooms: %d | Time: %ds" % [
+				GameManager.kills_this_run,
+				GameManager.gold,
+				GameManager.rooms_cleared_total,
+				int(GameManager.run_time_sec),
 			]
 
 
@@ -86,7 +113,7 @@ func _show_toast(msg: String) -> void:
 	toast.text = msg
 	toast.modulate.a = 1.0
 	var tw := create_tween()
-	tw.tween_interval(1.8)
+	tw.tween_interval(2.2)
 	tw.tween_property(toast, "modulate:a", 0.0, 0.5)
 
 

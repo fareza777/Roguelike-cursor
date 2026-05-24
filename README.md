@@ -30,8 +30,8 @@ Kau adalah **Penjaga Veil** — terjebak di dungeon yang berubah setiap run. Kum
 | WASD / Arrow | Gerak |
 | Mouse kiri | Serang arah kursor |
 | Space | Dodge (i-frames) |
-| E | Interaksi / pickup |
-| Tab | Inventory (Fase 1) |
+| E | Pickup, portal, shop, rest |
+| Tab | Inventory (6 slot + equip) |
 | Esc | Pause |
 
 ## Struktur Repo
@@ -50,7 +50,7 @@ Kau adalah **Penjaga Veil** — terjebak di dungeon yang berubah setiap run. Kum
 
 Lihat **[ROADMAP.md](ROADMAP.md)** untuk fase pengembangan lengkap (Fase 0 fondasi → Play Store → live ops).
 
-**Fase saat ini:** Fase 0 — vertical slice playable.
+**Fase saat ini:** Fase 1 — run 3 lantai, dungeon graph, inventory 6 slot.
 
 ## Menambah Item / Musuh
 
