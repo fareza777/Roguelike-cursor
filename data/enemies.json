@@ -1,0 +1,405 @@
+{
+  "data_version": 1,
+  "enemies": [
+    {
+      "id": "slime_void",
+      "name": "Void Slime",
+      "tier": "normal",
+      "lore": "Lump organik yang menetes dari retakan Veil. Ia tidak lapar — ia hanya mendekat.",
+      "stats": {
+        "max_hp": 28,
+        "attack": 4,
+        "defense": 0,
+        "speed": 70,
+        "attack_range": 35,
+        "attack_cooldown": 1.4
+      },
+      "behavior": "chase_melee",
+      "loot_table": "common_tier1",
+      "tags": [
+        "normal"
+      ],
+      "xp": 10
+    },
+    {
+      "id": "bat_carrion",
+      "name": "Carrion Bat",
+      "tier": "normal",
+      "lore": "Sayapnya sobek, tapi terbang lebih cepat dari yang kau kira. Mengincar leher.",
+      "stats": {
+        "max_hp": 18,
+        "attack": 6,
+        "defense": 0,
+        "speed": 120,
+        "attack_range": 120,
+        "attack_cooldown": 0.9
+      },
+      "behavior": "ranged",
+      "loot_table": "common_tier1",
+      "tags": [
+        "normal"
+      ],
+      "xp": 10
+    },
+    {
+      "id": "skeleton_penitent",
+      "name": "Penitent Skeleton",
+      "tier": "normal",
+      "lore": "Tulang berlutut selamanya. Bangkit lagi ketika kau berpaling.",
+      "stats": {
+        "max_hp": 35,
+        "attack": 7,
+        "defense": 2,
+        "speed": 65,
+        "attack_range": 45,
+        "attack_cooldown": 1.1
+      },
+      "behavior": "chase_melee",
+      "loot_table": "common_tier1",
+      "tags": [
+        "normal"
+      ],
+      "xp": 10
+    },
+    {
+      "id": "mushroom_sporeling",
+      "name": "Sporeling",
+      "tier": "normal",
+      "lore": "Meletuskan awan racun saat mati. Jangan berdiri terlalu dekat.",
+      "stats": {
+        "max_hp": 22,
+        "attack": 5,
+        "defense": 0,
+        "speed": 50,
+        "attack_range": 90,
+        "attack_cooldown": 1.6
+      },
+      "behavior": "ranged",
+      "loot_table": "common_tier1",
+      "tags": [
+        "normal"
+      ],
+      "xp": 10
+    },
+    {
+      "id": "ghost_lantern",
+      "name": "Lantern Wraith",
+      "tier": "normal",
+      "lore": "Cahaya palsu menarikmu ke perangkap. Cahaya asli menyakitkan baginya.",
+      "stats": {
+        "max_hp": 24,
+        "attack": 8,
+        "defense": 0,
+        "speed": 90,
+        "attack_range": 100,
+        "attack_cooldown": 1.3
+      },
+      "behavior": "ranged",
+      "loot_table": "common_tier1",
+      "tags": [
+        "normal"
+      ],
+      "xp": 10
+    },
+    {
+      "id": "rat_bonegnaw",
+      "name": "Bonegnaw Rat",
+      "tier": "normal",
+      "lore": "Gerombolan gigi. Satu gigit, sepuluh menyusul dari lubang.",
+      "stats": {
+        "max_hp": 20,
+        "attack": 5,
+        "defense": 0,
+        "speed": 140,
+        "attack_range": 30,
+        "attack_cooldown": 0.7
+      },
+      "behavior": "charger",
+      "loot_table": "common_tier1",
+      "tags": [
+        "normal"
+      ],
+      "xp": 10
+    },
+    {
+      "id": "cultist_veil",
+      "name": "Veil Cultist",
+      "tier": "normal",
+      "lore": "Bisikkan doa yang tidak kau mengerti. Bolanya bukan api — itu penyesalan.",
+      "stats": {
+        "max_hp": 30,
+        "attack": 9,
+        "defense": 1,
+        "speed": 75,
+        "attack_range": 110,
+        "attack_cooldown": 1.5
+      },
+      "behavior": "ranged",
+      "loot_table": "common_tier1",
+      "tags": [
+        "normal"
+      ],
+      "xp": 10
+    },
+    {
+      "id": "golem_shard",
+      "name": "Shard Golem",
+      "tier": "normal",
+      "lore": "Kristal hidup. Retak di dadanya adalah titik lemah — jika kau sempat melihat.",
+      "stats": {
+        "max_hp": 55,
+        "attack": 6,
+        "defense": 5,
+        "speed": 45,
+        "attack_range": 50,
+        "attack_cooldown": 1.8
+      },
+      "behavior": "chase_melee",
+      "loot_table": "common_tier1",
+      "tags": [
+        "normal"
+      ],
+      "xp": 10
+    },
+    {
+      "id": "spider_webbed",
+      "name": "Webbed Stalker",
+      "tier": "normal",
+      "lore": "Menempel di langit-langit ruangan. Turun tanpa suara.",
+      "stats": {
+        "max_hp": 26,
+        "attack": 7,
+        "defense": 0,
+        "speed": 100,
+        "attack_range": 40,
+        "attack_cooldown": 1.0
+      },
+      "behavior": "charger",
+      "loot_table": "common_tier1",
+      "tags": [
+        "normal"
+      ],
+      "xp": 10
+    },
+    {
+      "id": "imp_ember",
+      "name": "Ember Imp",
+      "tier": "normal",
+      "lore": "Tertawa kecil saat terbakar. Menciptakan lingkaran api di lantai.",
+      "stats": {
+        "max_hp": 25,
+        "attack": 10,
+        "defense": 0,
+        "speed": 110,
+        "attack_range": 95,
+        "attack_cooldown": 1.1
+      },
+      "behavior": "ranged",
+      "loot_table": "common_tier1",
+      "tags": [
+        "normal"
+      ],
+      "xp": 10
+    },
+    {
+      "id": "zombie_flooded",
+      "name": "Flooded Dead",
+      "tier": "normal",
+      "lore": "Berat dan basah. Setiap pukulan memercikkan cairan yang menghanguskan.",
+      "stats": {
+        "max_hp": 48,
+        "attack": 8,
+        "defense": 1,
+        "speed": 55,
+        "attack_range": 42,
+        "attack_cooldown": 1.3
+      },
+      "behavior": "chase_melee",
+      "loot_table": "common_tier1",
+      "tags": [
+        "normal"
+      ],
+      "xp": 10
+    },
+    {
+      "id": "archer_bone",
+      "name": "Bone Archer",
+      "tier": "normal",
+      "lore": "Tidak punya mata tapi tidak pernah meleset pada yang bergerak.",
+      "stats": {
+        "max_hp": 22,
+        "attack": 11,
+        "defense": 0,
+        "speed": 60,
+        "attack_range": 180,
+        "attack_cooldown": 2.0
+      },
+      "behavior": "ranged",
+      "loot_table": "common_tier1",
+      "tags": [
+        "normal"
+      ],
+      "xp": 10
+    },
+    {
+      "id": "hound_shadow",
+      "name": "Shadow Hound",
+      "tier": "elite",
+      "lore": "Elite. Menghilang sejenak sebelum menerkam — dengarkan langkahnya, bukan matanya.",
+      "stats": {
+        "max_hp": 40,
+        "attack": 12,
+        "defense": 2,
+        "speed": 160,
+        "attack_range": 38,
+        "attack_cooldown": 0.9
+      },
+      "behavior": "charger",
+      "loot_table": "elite_drop",
+      "tags": [
+        "elite"
+      ],
+      "xp": 25
+    },
+    {
+      "id": "knight_hollow",
+      "name": "Hollow Knight",
+      "tier": "elite",
+      "lore": "Elite. Armor kosong yang masih bergerak dengan disiplin militer.",
+      "stats": {
+        "max_hp": 80,
+        "attack": 14,
+        "defense": 6,
+        "speed": 70,
+        "attack_range": 55,
+        "attack_cooldown": 1.4
+      },
+      "behavior": "chase_melee",
+      "loot_table": "elite_drop",
+      "tags": [
+        "elite"
+      ],
+      "xp": 25
+    },
+    {
+      "id": "witch_fungal",
+      "name": "Fungal Witch",
+      "tier": "elite",
+      "lore": "Elite. Memanggil Sporeling kecil. Ruangan menjadi taman beracun.",
+      "stats": {
+        "max_hp": 45,
+        "attack": 9,
+        "defense": 2,
+        "speed": 65,
+        "attack_range": 130,
+        "attack_cooldown": 2.2
+      },
+      "behavior": "summoner",
+      "loot_table": "elite_drop",
+      "tags": [
+        "elite"
+      ],
+      "xp": 25
+    },
+    {
+      "id": "beast_chimera",
+      "name": "Catacomb Chimera",
+      "tier": "elite",
+      "lore": "Elite. Tiga kepala, satu niat: menghalangi jalan keluar.",
+      "stats": {
+        "max_hp": 70,
+        "attack": 16,
+        "defense": 3,
+        "speed": 130,
+        "attack_range": 48,
+        "attack_cooldown": 1.2
+      },
+      "behavior": "charger",
+      "loot_table": "elite_drop",
+      "tags": [
+        "elite"
+      ],
+      "xp": 25
+    },
+    {
+      "id": "golem_crystal",
+      "name": "Crystal Guardian",
+      "tier": "elite",
+      "lore": "Elite. Memantulkan sebagian damage — serang dari samping.",
+      "stats": {
+        "max_hp": 100,
+        "attack": 12,
+        "defense": 8,
+        "speed": 40,
+        "attack_range": 60,
+        "attack_cooldown": 2.0
+      },
+      "behavior": "chase_melee",
+      "loot_table": "elite_drop",
+      "tags": [
+        "elite"
+      ],
+      "xp": 25
+    },
+    {
+      "id": "reaper_mini",
+      "name": "Veil Reaper",
+      "tier": "elite",
+      "lore": "Elite. Sabitnya tidak memotong daging — ia memotong waktu di antara detak jantung.",
+      "stats": {
+        "max_hp": 55,
+        "attack": 18,
+        "defense": 2,
+        "speed": 85,
+        "attack_range": 140,
+        "attack_cooldown": 1.6
+      },
+      "behavior": "ranged",
+      "loot_table": "elite_drop",
+      "tags": [
+        "elite"
+      ],
+      "xp": 25
+    },
+    {
+      "id": "boss_warden",
+      "name": "Warden of the First Hall",
+      "tier": "boss",
+      "lore": "Boss. Penjaga hall pertama. Dua fase: tombak, lalu badai shard.",
+      "stats": {
+        "max_hp": 350,
+        "attack": 20,
+        "defense": 8,
+        "speed": 55,
+        "attack_range": 70,
+        "attack_cooldown": 1.0
+      },
+      "behavior": "boss_phased",
+      "loot_table": "boss_drop",
+      "tags": [
+        "boss"
+      ],
+      "xp": 50
+    },
+    {
+      "id": "boss_heart",
+      "name": "Heart of the Abyss (Seed)",
+      "tier": "boss",
+      "lore": "Boss. Benih boss sesungguhnya di Fase 3. Untuk Fase 0 — uji mekanik fase.",
+      "stats": {
+        "max_hp": 500,
+        "attack": 22,
+        "defense": 5,
+        "speed": 40,
+        "attack_range": 90,
+        "attack_cooldown": 1.2
+      },
+      "behavior": "boss_phased",
+      "loot_table": "boss_drop",
+      "tags": [
+        "boss"
+      ],
+      "xp": 50
+    }
+  ]
+}

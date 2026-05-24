@@ -1,0 +1,2731 @@
+{
+  "data_version": 1,
+  "items": [
+    {
+      "id": "weapon_blade_of_whispers",
+      "name": "Blade of Whispers",
+      "type": "weapon",
+      "rarity": "common",
+      "lore": "Ditempa di bawah Veil ketika langit masih punya bintang. Pedang ini berbisik nama-nama yang sudah dilupakan.",
+      "tags": [
+        "melee"
+      ],
+      "stats": {
+        "attack": 4,
+        "defense": 0,
+        "speed": 0,
+        "max_hp": 0
+      },
+      "effects": [
+        {
+          "type": "stat",
+          "stat": "attack",
+          "value": 3
+        }
+      ],
+      "sell_price": 8,
+      "stack_max": 1
+    },
+    {
+      "id": "weapon_crimson_fang",
+      "name": "Crimson Fang",
+      "type": "weapon",
+      "rarity": "common",
+      "lore": "Setiap tebasan meninggalkan jejak dingin — bukan dari logam, tapi dari kenangan pemilik sebelumnya.",
+      "tags": [
+        "melee",
+        "bleed"
+      ],
+      "stats": {
+        "attack": 5,
+        "defense": 0,
+        "speed": 0,
+        "max_hp": 0
+      },
+      "effects": [
+        {
+          "type": "stat",
+          "stat": "attack",
+          "value": 5
+        }
+      ],
+      "sell_price": 8,
+      "stack_max": 1
+    },
+    {
+      "id": "weapon_void_needle",
+      "name": "Void Needle",
+      "type": "weapon",
+      "rarity": "common",
+      "lore": "Para Penjaga Veil memakai senjata ini sebagai hukuman: mereka yang gagal, senjata mereka yang menang.",
+      "tags": [
+        "melee",
+        "fire"
+      ],
+      "stats": {
+        "attack": 6,
+        "defense": 0,
+        "speed": 0,
+        "max_hp": 0
+      },
+      "effects": [
+        {
+          "type": "stat",
+          "stat": "defense",
+          "value": 2
+        }
+      ],
+      "sell_price": 8,
+      "stack_max": 1
+    },
+    {
+      "id": "weapon_sanctum_breaker",
+      "name": "Sanctum Breaker",
+      "type": "weapon",
+      "rarity": "uncommon",
+      "lore": "Ditempa di bawah Veil ketika langit masih punya bintang. Pedang ini berbisik nama-nama yang sudah dilupakan.",
+      "tags": [
+        "ranged"
+      ],
+      "stats": {
+        "attack": 7,
+        "defense": 0,
+        "speed": 0,
+        "max_hp": 0
+      },
+      "effects": [
+        {
+          "type": "stat",
+          "stat": "defense",
+          "value": 4
+        }
+      ],
+      "sell_price": 18,
+      "stack_max": 1
+    },
+    {
+      "id": "weapon_moonlit_rapier",
+      "name": "Moonlit Rapier",
+      "type": "weapon",
+      "rarity": "uncommon",
+      "lore": "Setiap tebasan meninggalkan jejak dingin — bukan dari logam, tapi dari kenangan pemilik sebelumnya.",
+      "tags": [
+        "melee",
+        "crit"
+      ],
+      "stats": {
+        "attack": 8,
+        "defense": 0,
+        "speed": 0,
+        "max_hp": 0
+      },
+      "effects": [
+        {
+          "type": "stat",
+          "stat": "speed",
+          "value": 10
+        }
+      ],
+      "sell_price": 18,
+      "stack_max": 1
+    },
+    {
+      "id": "weapon_ashbringer_stub",
+      "name": "Ashbringer Stub",
+      "type": "weapon",
+      "rarity": "rare",
+      "lore": "Para Penjaga Veil memakai senjata ini sebagai hukuman: mereka yang gagal, senjata mereka yang menang.",
+      "tags": [
+        "melee"
+      ],
+      "stats": {
+        "attack": 9,
+        "defense": 0,
+        "speed": 0,
+        "max_hp": 0
+      },
+      "effects": [
+        {
+          "type": "stat",
+          "stat": "max_hp",
+          "value": 15
+        },
+        {
+          "type": "passive",
+          "apply": "crit_chance",
+          "value": 0.08
+        }
+      ],
+      "sell_price": 35,
+      "stack_max": 1
+    },
+    {
+      "id": "weapon_soul_carver",
+      "name": "Soul Carver",
+      "type": "weapon",
+      "rarity": "epic",
+      "lore": "Ditempa di bawah Veil ketika langit masih punya bintang. Pedang ini berbisik nama-nama yang sudah dilupakan.",
+      "tags": [
+        "melee",
+        "bleed"
+      ],
+      "stats": {
+        "attack": 10,
+        "defense": 0,
+        "speed": 0,
+        "max_hp": 0
+      },
+      "effects": [
+        {
+          "type": "stat",
+          "stat": "max_hp",
+          "value": 25
+        },
+        {
+          "type": "stat",
+          "stat": "attack",
+          "value": 3
+        }
+      ],
+      "sell_price": 60,
+      "stack_max": 1
+    },
+    {
+      "id": "weapon_gravepicker",
+      "name": "Gravepicker",
+      "type": "weapon",
+      "rarity": "legendary",
+      "lore": "Setiap tebasan meninggalkan jejak dingin — bukan dari logam, tapi dari kenangan pemilik sebelumnya.",
+      "tags": [
+        "melee",
+        "fire"
+      ],
+      "stats": {
+        "attack": 11,
+        "defense": 0,
+        "speed": 0,
+        "max_hp": 0
+      },
+      "effects": [
+        {
+          "type": "on_hit",
+          "proc": 0.12,
+          "apply": "bleed",
+          "damage": 2,
+          "duration": 3
+        },
+        {
+          "type": "stat",
+          "stat": "attack",
+          "value": 5
+        }
+      ],
+      "sell_price": 120,
+      "stack_max": 1
+    },
+    {
+      "id": "weapon_echo_katana",
+      "name": "Echo Katana",
+      "type": "weapon",
+      "rarity": "common",
+      "lore": "Para Penjaga Veil memakai senjata ini sebagai hukuman: mereka yang gagal, senjata mereka yang menang.",
+      "tags": [
+        "ranged"
+      ],
+      "stats": {
+        "attack": 12,
+        "defense": 0,
+        "speed": 0,
+        "max_hp": 0
+      },
+      "effects": [
+        {
+          "type": "on_hit",
+          "proc": 0.1,
+          "apply": "burn",
+          "damage": 3,
+          "duration": 2
+        }
+      ],
+      "sell_price": 8,
+      "stack_max": 1
+    },
+    {
+      "id": "weapon_abyss_cleaver",
+      "name": "Abyss Cleaver",
+      "type": "weapon",
+      "rarity": "common",
+      "lore": "Ditempa di bawah Veil ketika langit masih punya bintang. Pedang ini berbisik nama-nama yang sudah dilupakan.",
+      "tags": [
+        "melee",
+        "crit"
+      ],
+      "stats": {
+        "attack": 13,
+        "defense": 0,
+        "speed": 0,
+        "max_hp": 0
+      },
+      "effects": [
+        {
+          "type": "on_hit",
+          "proc": 0.08,
+          "apply": "slow",
+          "value": 0.5,
+          "duration": 1.5
+        }
+      ],
+      "sell_price": 8,
+      "stack_max": 1
+    },
+    {
+      "id": "weapon_penitent_dagger",
+      "name": "Penitent Dagger",
+      "type": "weapon",
+      "rarity": "common",
+      "lore": "Setiap tebasan meninggalkan jejak dingin — bukan dari logam, tapi dari kenangan pemilik sebelumnya.",
+      "tags": [
+        "melee"
+      ],
+      "stats": {
+        "attack": 14,
+        "defense": 0,
+        "speed": 0,
+        "max_hp": 0
+      },
+      "effects": [
+        {
+          "type": "on_kill",
+          "proc": 1.0,
+          "apply": "heal",
+          "value": 5
+        }
+      ],
+      "sell_price": 8,
+      "stack_max": 1
+    },
+    {
+      "id": "weapon_hollow_reaver",
+      "name": "Hollow Reaver",
+      "type": "weapon",
+      "rarity": "uncommon",
+      "lore": "Para Penjaga Veil memakai senjata ini sebagai hukuman: mereka yang gagal, senjata mereka yang menang.",
+      "tags": [
+        "melee",
+        "bleed"
+      ],
+      "stats": {
+        "attack": 15,
+        "defense": 0,
+        "speed": 0,
+        "max_hp": 0
+      },
+      "effects": [
+        {
+          "type": "passive",
+          "apply": "lifesteal",
+          "value": 0.05
+        }
+      ],
+      "sell_price": 18,
+      "stack_max": 1
+    },
+    {
+      "id": "weapon_wraithhook",
+      "name": "Wraithhook",
+      "type": "weapon",
+      "rarity": "uncommon",
+      "lore": "Ditempa di bawah Veil ketika langit masih punya bintang. Pedang ini berbisik nama-nama yang sudah dilupakan.",
+      "tags": [
+        "melee",
+        "fire"
+      ],
+      "stats": {
+        "attack": 4,
+        "defense": 0,
+        "speed": 0,
+        "max_hp": 0
+      },
+      "effects": [
+        {
+          "type": "passive",
+          "apply": "crit_chance",
+          "value": 0.08
+        }
+      ],
+      "sell_price": 18,
+      "stack_max": 1
+    },
+    {
+      "id": "weapon_dawns_lament",
+      "name": "Dawn's Lament",
+      "type": "weapon",
+      "rarity": "rare",
+      "lore": "Setiap tebasan meninggalkan jejak dingin — bukan dari logam, tapi dari kenangan pemilik sebelumnya.",
+      "tags": [
+        "ranged"
+      ],
+      "stats": {
+        "attack": 5,
+        "defense": 0,
+        "speed": 0,
+        "max_hp": 0
+      },
+      "effects": [
+        {
+          "type": "stat",
+          "stat": "attack",
+          "value": 3
+        },
+        {
+          "type": "on_hit",
+          "proc": 0.12,
+          "apply": "bleed",
+          "damage": 2,
+          "duration": 3
+        }
+      ],
+      "sell_price": 35,
+      "stack_max": 1
+    },
+    {
+      "id": "weapon_nightcoil_whip",
+      "name": "Nightcoil Whip",
+      "type": "weapon",
+      "rarity": "epic",
+      "lore": "Para Penjaga Veil memakai senjata ini sebagai hukuman: mereka yang gagal, senjata mereka yang menang.",
+      "tags": [
+        "melee",
+        "crit"
+      ],
+      "stats": {
+        "attack": 6,
+        "defense": 0,
+        "speed": 0,
+        "max_hp": 0
+      },
+      "effects": [
+        {
+          "type": "stat",
+          "stat": "attack",
+          "value": 5
+        },
+        {
+          "type": "on_hit",
+          "proc": 0.1,
+          "apply": "burn",
+          "damage": 3,
+          "duration": 2
+        }
+      ],
+      "sell_price": 60,
+      "stack_max": 1
+    },
+    {
+      "id": "weapon_thorned_maul",
+      "name": "Thorned Maul",
+      "type": "weapon",
+      "rarity": "legendary",
+      "lore": "Ditempa di bawah Veil ketika langit masih punya bintang. Pedang ini berbisik nama-nama yang sudah dilupakan.",
+      "tags": [
+        "melee"
+      ],
+      "stats": {
+        "attack": 7,
+        "defense": 0,
+        "speed": 0,
+        "max_hp": 0
+      },
+      "effects": [
+        {
+          "type": "stat",
+          "stat": "defense",
+          "value": 2
+        },
+        {
+          "type": "on_hit",
+          "proc": 0.08,
+          "apply": "slow",
+          "value": 0.5,
+          "duration": 1.5
+        }
+      ],
+      "sell_price": 120,
+      "stack_max": 1
+    },
+    {
+      "id": "weapon_glass_shiv",
+      "name": "Glass Shiv",
+      "type": "weapon",
+      "rarity": "common",
+      "lore": "Setiap tebasan meninggalkan jejak dingin — bukan dari logam, tapi dari kenangan pemilik sebelumnya.",
+      "tags": [
+        "melee",
+        "bleed"
+      ],
+      "stats": {
+        "attack": 8,
+        "defense": 0,
+        "speed": 0,
+        "max_hp": 0
+      },
+      "effects": [
+        {
+          "type": "stat",
+          "stat": "defense",
+          "value": 4
+        }
+      ],
+      "sell_price": 8,
+      "stack_max": 1
+    },
+    {
+      "id": "weapon_emberbrand",
+      "name": "Emberbrand",
+      "type": "weapon",
+      "rarity": "common",
+      "lore": "Para Penjaga Veil memakai senjata ini sebagai hukuman: mereka yang gagal, senjata mereka yang menang.",
+      "tags": [
+        "melee",
+        "fire"
+      ],
+      "stats": {
+        "attack": 9,
+        "defense": 0,
+        "speed": 0,
+        "max_hp": 0
+      },
+      "effects": [
+        {
+          "type": "stat",
+          "stat": "speed",
+          "value": 10
+        }
+      ],
+      "sell_price": 8,
+      "stack_max": 1
+    },
+    {
+      "id": "weapon_frostbite_needle",
+      "name": "Frostbite Needle",
+      "type": "weapon",
+      "rarity": "common",
+      "lore": "Ditempa di bawah Veil ketika langit masih punya bintang. Pedang ini berbisik nama-nama yang sudah dilupakan.",
+      "tags": [
+        "ranged"
+      ],
+      "stats": {
+        "attack": 10,
+        "defense": 0,
+        "speed": 0,
+        "max_hp": 0
+      },
+      "effects": [
+        {
+          "type": "stat",
+          "stat": "max_hp",
+          "value": 15
+        }
+      ],
+      "sell_price": 8,
+      "stack_max": 1
+    },
+    {
+      "id": "weapon_stormprong_spear",
+      "name": "Stormprong Spear",
+      "type": "weapon",
+      "rarity": "uncommon",
+      "lore": "Setiap tebasan meninggalkan jejak dingin — bukan dari logam, tapi dari kenangan pemilik sebelumnya.",
+      "tags": [
+        "melee",
+        "crit"
+      ],
+      "stats": {
+        "attack": 11,
+        "defense": 0,
+        "speed": 0,
+        "max_hp": 0
+      },
+      "effects": [
+        {
+          "type": "stat",
+          "stat": "max_hp",
+          "value": 25
+        }
+      ],
+      "sell_price": 18,
+      "stack_max": 1
+    },
+    {
+      "id": "armor_veilwalker_mantle",
+      "name": "Veilwalker Mantle",
+      "type": "armor",
+      "rarity": "uncommon",
+      "lore": "Armour ini menyerap ketakutan. Semakin lama kau memakainya, semakin ringan langkah musuh di belakangmu.",
+      "tags": [
+        "defense"
+      ],
+      "stats": {
+        "attack": 0,
+        "defense": 6,
+        "speed": 0,
+        "max_hp": 0
+      },
+      "effects": [
+        {
+          "type": "on_hit",
+          "proc": 0.12,
+          "apply": "bleed",
+          "damage": 2,
+          "duration": 3
+        }
+      ],
+      "sell_price": 18,
+      "stack_max": 1
+    },
+    {
+      "id": "armor_catacomb_plate",
+      "name": "Catacomb Plate",
+      "type": "armor",
+      "rarity": "rare",
+      "lore": "Tenunan dari benang jiwa — tidak melindungi tubuh sebanyak melindungi identitas.",
+      "tags": [
+        "defense",
+        "hp"
+      ],
+      "stats": {
+        "attack": 0,
+        "defense": 7,
+        "speed": 0,
+        "max_hp": 5
+      },
+      "effects": [
+        {
+          "type": "on_hit",
+          "proc": 0.1,
+          "apply": "burn",
+          "damage": 3,
+          "duration": 2
+        },
+        {
+          "type": "stat",
+          "stat": "defense",
+          "value": 2
+        }
+      ],
+      "sell_price": 35,
+      "stack_max": 1
+    },
+    {
+      "id": "armor_mycelium_vest",
+      "name": "Mycelium Vest",
+      "type": "armor",
+      "rarity": "epic",
+      "lore": "Catatan di dalam lapisan dalam: 'Jangan percaya cermin di lantai tiga.'",
+      "tags": [
+        "speed"
+      ],
+      "stats": {
+        "attack": 0,
+        "defense": 8,
+        "speed": 0,
+        "max_hp": 10
+      },
+      "effects": [
+        {
+          "type": "on_hit",
+          "proc": 0.08,
+          "apply": "slow",
+          "value": 0.5,
+          "duration": 1.5
+        },
+        {
+          "type": "stat",
+          "stat": "defense",
+          "value": 4
+        }
+      ],
+      "sell_price": 60,
+      "stack_max": 1
+    },
+    {
+      "id": "armor_crystal_aegis",
+      "name": "Crystal Aegis",
+      "type": "armor",
+      "rarity": "legendary",
+      "lore": "Armour ini menyerap ketakutan. Semakin lama kau memakainya, semakin ringan langkah musuh di belakangmu.",
+      "tags": [
+        "dodge"
+      ],
+      "stats": {
+        "attack": 0,
+        "defense": 9,
+        "speed": 0,
+        "max_hp": 15
+      },
+      "effects": [
+        {
+          "type": "on_kill",
+          "proc": 1.0,
+          "apply": "heal",
+          "value": 5
+        },
+        {
+          "type": "stat",
+          "stat": "speed",
+          "value": 10
+        }
+      ],
+      "sell_price": 120,
+      "stack_max": 1
+    },
+    {
+      "id": "armor_shadebound_cloak",
+      "name": "Shadebound Cloak",
+      "type": "armor",
+      "rarity": "common",
+      "lore": "Tenunan dari benang jiwa — tidak melindungi tubuh sebanyak melindungi identitas.",
+      "tags": [
+        "defense"
+      ],
+      "stats": {
+        "attack": 0,
+        "defense": 2,
+        "speed": 0,
+        "max_hp": 20
+      },
+      "effects": [
+        {
+          "type": "passive",
+          "apply": "lifesteal",
+          "value": 0.05
+        }
+      ],
+      "sell_price": 8,
+      "stack_max": 1
+    },
+    {
+      "id": "armor_penitent_chain",
+      "name": "Penitent Chain",
+      "type": "armor",
+      "rarity": "common",
+      "lore": "Catatan di dalam lapisan dalam: 'Jangan percaya cermin di lantai tiga.'",
+      "tags": [
+        "defense",
+        "hp"
+      ],
+      "stats": {
+        "attack": 0,
+        "defense": 3,
+        "speed": 0,
+        "max_hp": 0
+      },
+      "effects": [
+        {
+          "type": "passive",
+          "apply": "crit_chance",
+          "value": 0.08
+        }
+      ],
+      "sell_price": 8,
+      "stack_max": 1
+    },
+    {
+      "id": "armor_briarheart_mail",
+      "name": "Briarheart Mail",
+      "type": "armor",
+      "rarity": "common",
+      "lore": "Armour ini menyerap ketakutan. Semakin lama kau memakainya, semakin ringan langkah musuh di belakangmu.",
+      "tags": [
+        "speed"
+      ],
+      "stats": {
+        "attack": 0,
+        "defense": 4,
+        "speed": 0,
+        "max_hp": 5
+      },
+      "effects": [
+        {
+          "type": "stat",
+          "stat": "attack",
+          "value": 3
+        }
+      ],
+      "sell_price": 8,
+      "stack_max": 1
+    },
+    {
+      "id": "armor_obsidian_shell",
+      "name": "Obsidian Shell",
+      "type": "armor",
+      "rarity": "uncommon",
+      "lore": "Tenunan dari benang jiwa — tidak melindungi tubuh sebanyak melindungi identitas.",
+      "tags": [
+        "dodge"
+      ],
+      "stats": {
+        "attack": 0,
+        "defense": 5,
+        "speed": 0,
+        "max_hp": 10
+      },
+      "effects": [
+        {
+          "type": "stat",
+          "stat": "attack",
+          "value": 5
+        }
+      ],
+      "sell_price": 18,
+      "stack_max": 1
+    },
+    {
+      "id": "armor_luminous_shroud",
+      "name": "Luminous Shroud",
+      "type": "armor",
+      "rarity": "uncommon",
+      "lore": "Catatan di dalam lapisan dalam: 'Jangan percaya cermin di lantai tiga.'",
+      "tags": [
+        "defense"
+      ],
+      "stats": {
+        "attack": 0,
+        "defense": 6,
+        "speed": 0,
+        "max_hp": 15
+      },
+      "effects": [
+        {
+          "type": "stat",
+          "stat": "defense",
+          "value": 2
+        }
+      ],
+      "sell_price": 18,
+      "stack_max": 1
+    },
+    {
+      "id": "armor_gravewrought_hauberk",
+      "name": "Gravewrought Hauberk",
+      "type": "armor",
+      "rarity": "rare",
+      "lore": "Armour ini menyerap ketakutan. Semakin lama kau memakainya, semakin ringan langkah musuh di belakangmu.",
+      "tags": [
+        "defense",
+        "hp"
+      ],
+      "stats": {
+        "attack": 0,
+        "defense": 7,
+        "speed": 0,
+        "max_hp": 20
+      },
+      "effects": [
+        {
+          "type": "stat",
+          "stat": "defense",
+          "value": 4
+        },
+        {
+          "type": "on_kill",
+          "proc": 1.0,
+          "apply": "heal",
+          "value": 5
+        }
+      ],
+      "sell_price": 35,
+      "stack_max": 1
+    },
+    {
+      "id": "armor_wispwoven_robe",
+      "name": "Wispwoven Robe",
+      "type": "armor",
+      "rarity": "epic",
+      "lore": "Tenunan dari benang jiwa — tidak melindungi tubuh sebanyak melindungi identitas.",
+      "tags": [
+        "speed"
+      ],
+      "stats": {
+        "attack": 0,
+        "defense": 8,
+        "speed": 0,
+        "max_hp": 0
+      },
+      "effects": [
+        {
+          "type": "stat",
+          "stat": "speed",
+          "value": 10
+        },
+        {
+          "type": "passive",
+          "apply": "lifesteal",
+          "value": 0.05
+        }
+      ],
+      "sell_price": 60,
+      "stack_max": 1
+    },
+    {
+      "id": "armor_ironveil_cuirass",
+      "name": "Ironveil Cuirass",
+      "type": "armor",
+      "rarity": "legendary",
+      "lore": "Catatan di dalam lapisan dalam: 'Jangan percaya cermin di lantai tiga.'",
+      "tags": [
+        "dodge"
+      ],
+      "stats": {
+        "attack": 0,
+        "defense": 9,
+        "speed": 0,
+        "max_hp": 5
+      },
+      "effects": [
+        {
+          "type": "stat",
+          "stat": "max_hp",
+          "value": 15
+        },
+        {
+          "type": "passive",
+          "apply": "crit_chance",
+          "value": 0.08
+        }
+      ],
+      "sell_price": 120,
+      "stack_max": 1
+    },
+    {
+      "id": "armor_ashen_greaves",
+      "name": "Ashen Greaves",
+      "type": "armor",
+      "rarity": "common",
+      "lore": "Armour ini menyerap ketakutan. Semakin lama kau memakainya, semakin ringan langkah musuh di belakangmu.",
+      "tags": [
+        "defense"
+      ],
+      "stats": {
+        "attack": 0,
+        "defense": 2,
+        "speed": 0,
+        "max_hp": 10
+      },
+      "effects": [
+        {
+          "type": "stat",
+          "stat": "max_hp",
+          "value": 25
+        }
+      ],
+      "sell_price": 8,
+      "stack_max": 1
+    },
+    {
+      "id": "armor_spiritbone_helm",
+      "name": "Spiritbone Helm",
+      "type": "armor",
+      "rarity": "common",
+      "lore": "Tenunan dari benang jiwa — tidak melindungi tubuh sebanyak melindungi identitas.",
+      "tags": [
+        "defense",
+        "hp"
+      ],
+      "stats": {
+        "attack": 0,
+        "defense": 3,
+        "speed": 0,
+        "max_hp": 15
+      },
+      "effects": [
+        {
+          "type": "on_hit",
+          "proc": 0.12,
+          "apply": "bleed",
+          "damage": 2,
+          "duration": 3
+        }
+      ],
+      "sell_price": 8,
+      "stack_max": 1
+    },
+    {
+      "id": "armor_abyssal_pauldrons",
+      "name": "Abyssal Pauldrons",
+      "type": "armor",
+      "rarity": "common",
+      "lore": "Catatan di dalam lapisan dalam: 'Jangan percaya cermin di lantai tiga.'",
+      "tags": [
+        "speed"
+      ],
+      "stats": {
+        "attack": 0,
+        "defense": 4,
+        "speed": 0,
+        "max_hp": 20
+      },
+      "effects": [
+        {
+          "type": "on_hit",
+          "proc": 0.1,
+          "apply": "burn",
+          "damage": 3,
+          "duration": 2
+        }
+      ],
+      "sell_price": 8,
+      "stack_max": 1
+    },
+    {
+      "id": "relic_heart_of_the_forgotten",
+      "name": "Heart of the Forgotten",
+      "type": "relic",
+      "rarity": "uncommon",
+      "lore": "Relik ini tidak memberi kekuatan — ia menukar sesuatu yang tidak kau sadari.",
+      "tags": [
+        "passive"
+      ],
+      "stats": {
+        "attack": 0,
+        "defense": 0,
+        "speed": 0,
+        "max_hp": 0
+      },
+      "effects": [
+        {
+          "type": "on_hit",
+          "proc": 0.08,
+          "apply": "slow",
+          "value": 0.5,
+          "duration": 1.5
+        }
+      ],
+      "sell_price": 18,
+      "stack_max": 1
+    },
+    {
+      "id": "relic_mirror_of_false_dawn",
+      "name": "Mirror of False Dawn",
+      "type": "relic",
+      "rarity": "uncommon",
+      "lore": "Arkeolog Veil menemukannya terapung di ruangan tanpa pintu. Tidak ada yang meminta untuk mengambilnya.",
+      "tags": [
+        "on_hit"
+      ],
+      "stats": {
+        "attack": 0,
+        "defense": 0,
+        "speed": 0,
+        "max_hp": 0
+      },
+      "effects": [
+        {
+          "type": "on_kill",
+          "proc": 1.0,
+          "apply": "heal",
+          "value": 5
+        }
+      ],
+      "sell_price": 18,
+      "stack_max": 1
+    },
+    {
+      "id": "relic_coin_of_the_dead",
+      "name": "Coin of the Dead",
+      "type": "relic",
+      "rarity": "rare",
+      "lore": "Bercahaya redup saat ada yang berbohong dalam radius tiga langkah.",
+      "tags": [
+        "on_kill"
+      ],
+      "stats": {
+        "attack": 0,
+        "defense": 0,
+        "speed": 0,
+        "max_hp": 0
+      },
+      "effects": [
+        {
+          "type": "passive",
+          "apply": "lifesteal",
+          "value": 0.05
+        },
+        {
+          "type": "stat",
+          "stat": "max_hp",
+          "value": 15
+        }
+      ],
+      "sell_price": 35,
+      "stack_max": 1
+    },
+    {
+      "id": "relic_lantern_of_last_breath",
+      "name": "Lantern of Last Breath",
+      "type": "relic",
+      "rarity": "epic",
+      "lore": "Relik ini tidak memberi kekuatan — ia menukar sesuatu yang tidak kau sadari.",
+      "tags": [
+        "aura"
+      ],
+      "stats": {
+        "attack": 0,
+        "defense": 0,
+        "speed": 0,
+        "max_hp": 0
+      },
+      "effects": [
+        {
+          "type": "passive",
+          "apply": "crit_chance",
+          "value": 0.08
+        },
+        {
+          "type": "stat",
+          "stat": "max_hp",
+          "value": 25
+        }
+      ],
+      "sell_price": 60,
+      "stack_max": 1
+    },
+    {
+      "id": "relic_ring_of_endless_steps",
+      "name": "Ring of Endless Steps",
+      "type": "relic",
+      "rarity": "legendary",
+      "lore": "Arkeolog Veil menemukannya terapung di ruangan tanpa pintu. Tidak ada yang meminta untuk mengambilnya.",
+      "tags": [
+        "passive"
+      ],
+      "stats": {
+        "attack": 0,
+        "defense": 0,
+        "speed": 0,
+        "max_hp": 0
+      },
+      "effects": [
+        {
+          "type": "stat",
+          "stat": "attack",
+          "value": 3
+        },
+        {
+          "type": "on_hit",
+          "proc": 0.12,
+          "apply": "bleed",
+          "damage": 2,
+          "duration": 3
+        }
+      ],
+      "sell_price": 120,
+      "stack_max": 1
+    },
+    {
+      "id": "relic_chalice_of_spilled_stars",
+      "name": "Chalice of Spilled Stars",
+      "type": "relic",
+      "rarity": "common",
+      "lore": "Bercahaya redup saat ada yang berbohong dalam radius tiga langkah.",
+      "tags": [
+        "on_hit"
+      ],
+      "stats": {
+        "attack": 0,
+        "defense": 0,
+        "speed": 0,
+        "max_hp": 0
+      },
+      "effects": [
+        {
+          "type": "stat",
+          "stat": "attack",
+          "value": 5
+        }
+      ],
+      "sell_price": 8,
+      "stack_max": 1
+    },
+    {
+      "id": "relic_bone_dice_of_fate",
+      "name": "Bone Dice of Fate",
+      "type": "relic",
+      "rarity": "common",
+      "lore": "Relik ini tidak memberi kekuatan — ia menukar sesuatu yang tidak kau sadari.",
+      "tags": [
+        "on_kill"
+      ],
+      "stats": {
+        "attack": 0,
+        "defense": 0,
+        "speed": 0,
+        "max_hp": 0
+      },
+      "effects": [
+        {
+          "type": "stat",
+          "stat": "defense",
+          "value": 2
+        }
+      ],
+      "sell_price": 8,
+      "stack_max": 1
+    },
+    {
+      "id": "relic_veil_fragment_alpha",
+      "name": "Veil Fragment Alpha",
+      "type": "relic",
+      "rarity": "common",
+      "lore": "Arkeolog Veil menemukannya terapung di ruangan tanpa pintu. Tidak ada yang meminta untuk mengambilnya.",
+      "tags": [
+        "aura"
+      ],
+      "stats": {
+        "attack": 0,
+        "defense": 0,
+        "speed": 0,
+        "max_hp": 0
+      },
+      "effects": [
+        {
+          "type": "stat",
+          "stat": "defense",
+          "value": 4
+        }
+      ],
+      "sell_price": 8,
+      "stack_max": 1
+    },
+    {
+      "id": "relic_whispering_locket",
+      "name": "Whispering Locket",
+      "type": "relic",
+      "rarity": "uncommon",
+      "lore": "Bercahaya redup saat ada yang berbohong dalam radius tiga langkah.",
+      "tags": [
+        "passive"
+      ],
+      "stats": {
+        "attack": 0,
+        "defense": 0,
+        "speed": 0,
+        "max_hp": 0
+      },
+      "effects": [
+        {
+          "type": "stat",
+          "stat": "speed",
+          "value": 10
+        }
+      ],
+      "sell_price": 18,
+      "stack_max": 1
+    },
+    {
+      "id": "relic_crown_of_rusted_thorns",
+      "name": "Crown of Rusted Thorns",
+      "type": "relic",
+      "rarity": "uncommon",
+      "lore": "Relik ini tidak memberi kekuatan — ia menukar sesuatu yang tidak kau sadari.",
+      "tags": [
+        "on_hit"
+      ],
+      "stats": {
+        "attack": 0,
+        "defense": 0,
+        "speed": 0,
+        "max_hp": 0
+      },
+      "effects": [
+        {
+          "type": "stat",
+          "stat": "max_hp",
+          "value": 15
+        }
+      ],
+      "sell_price": 18,
+      "stack_max": 1
+    },
+    {
+      "id": "relic_hourglass_of_stolen_time",
+      "name": "Hourglass of Stolen Time",
+      "type": "relic",
+      "rarity": "rare",
+      "lore": "Arkeolog Veil menemukannya terapung di ruangan tanpa pintu. Tidak ada yang meminta untuk mengambilnya.",
+      "tags": [
+        "on_kill"
+      ],
+      "stats": {
+        "attack": 0,
+        "defense": 0,
+        "speed": 0,
+        "max_hp": 0
+      },
+      "effects": [
+        {
+          "type": "stat",
+          "stat": "max_hp",
+          "value": 25
+        },
+        {
+          "type": "stat",
+          "stat": "attack",
+          "value": 3
+        }
+      ],
+      "sell_price": 35,
+      "stack_max": 1
+    },
+    {
+      "id": "relic_eye_of_the_deep",
+      "name": "Eye of the Deep",
+      "type": "relic",
+      "rarity": "epic",
+      "lore": "Bercahaya redup saat ada yang berbohong dalam radius tiga langkah.",
+      "tags": [
+        "aura"
+      ],
+      "stats": {
+        "attack": 0,
+        "defense": 0,
+        "speed": 0,
+        "max_hp": 0
+      },
+      "effects": [
+        {
+          "type": "on_hit",
+          "proc": 0.12,
+          "apply": "bleed",
+          "damage": 2,
+          "duration": 3
+        },
+        {
+          "type": "stat",
+          "stat": "attack",
+          "value": 5
+        }
+      ],
+      "sell_price": 60,
+      "stack_max": 1
+    },
+    {
+      "id": "relic_sigil_of_returning_pain",
+      "name": "Sigil of Returning Pain",
+      "type": "relic",
+      "rarity": "legendary",
+      "lore": "Relik ini tidak memberi kekuatan — ia menukar sesuatu yang tidak kau sadari.",
+      "tags": [
+        "passive"
+      ],
+      "stats": {
+        "attack": 0,
+        "defense": 0,
+        "speed": 0,
+        "max_hp": 0
+      },
+      "effects": [
+        {
+          "type": "on_hit",
+          "proc": 0.1,
+          "apply": "burn",
+          "damage": 3,
+          "duration": 2
+        },
+        {
+          "type": "stat",
+          "stat": "defense",
+          "value": 2
+        }
+      ],
+      "sell_price": 120,
+      "stack_max": 1
+    },
+    {
+      "id": "relic_ember_core_relic",
+      "name": "Ember Core Relic",
+      "type": "relic",
+      "rarity": "common",
+      "lore": "Arkeolog Veil menemukannya terapung di ruangan tanpa pintu. Tidak ada yang meminta untuk mengambilnya.",
+      "tags": [
+        "on_hit"
+      ],
+      "stats": {
+        "attack": 0,
+        "defense": 0,
+        "speed": 0,
+        "max_hp": 0
+      },
+      "effects": [
+        {
+          "type": "on_hit",
+          "proc": 0.08,
+          "apply": "slow",
+          "value": 0.5,
+          "duration": 1.5
+        }
+      ],
+      "sell_price": 8,
+      "stack_max": 1
+    },
+    {
+      "id": "relic_frozen_tear_pendant",
+      "name": "Frozen Tear Pendant",
+      "type": "relic",
+      "rarity": "common",
+      "lore": "Bercahaya redup saat ada yang berbohong dalam radius tiga langkah.",
+      "tags": [
+        "on_kill"
+      ],
+      "stats": {
+        "attack": 0,
+        "defense": 0,
+        "speed": 0,
+        "max_hp": 0
+      },
+      "effects": [
+        {
+          "type": "on_kill",
+          "proc": 1.0,
+          "apply": "heal",
+          "value": 5
+        }
+      ],
+      "sell_price": 8,
+      "stack_max": 1
+    },
+    {
+      "id": "relic_chain_of_bound_souls",
+      "name": "Chain of Bound Souls",
+      "type": "relic",
+      "rarity": "common",
+      "lore": "Relik ini tidak memberi kekuatan — ia menukar sesuatu yang tidak kau sadari.",
+      "tags": [
+        "aura"
+      ],
+      "stats": {
+        "attack": 0,
+        "defense": 0,
+        "speed": 0,
+        "max_hp": 0
+      },
+      "effects": [
+        {
+          "type": "passive",
+          "apply": "lifesteal",
+          "value": 0.05
+        }
+      ],
+      "sell_price": 8,
+      "stack_max": 1
+    },
+    {
+      "id": "relic_seed_of_corruption",
+      "name": "Seed of Corruption",
+      "type": "relic",
+      "rarity": "uncommon",
+      "lore": "Arkeolog Veil menemukannya terapung di ruangan tanpa pintu. Tidak ada yang meminta untuk mengambilnya.",
+      "tags": [
+        "passive"
+      ],
+      "stats": {
+        "attack": 0,
+        "defense": 0,
+        "speed": 0,
+        "max_hp": 0
+      },
+      "effects": [
+        {
+          "type": "passive",
+          "apply": "crit_chance",
+          "value": 0.08
+        }
+      ],
+      "sell_price": 18,
+      "stack_max": 1
+    },
+    {
+      "id": "relic_feather_of_weightless_fall",
+      "name": "Feather of Weightless Fall",
+      "type": "relic",
+      "rarity": "uncommon",
+      "lore": "Bercahaya redup saat ada yang berbohong dalam radius tiga langkah.",
+      "tags": [
+        "on_hit"
+      ],
+      "stats": {
+        "attack": 0,
+        "defense": 0,
+        "speed": 0,
+        "max_hp": 0
+      },
+      "effects": [
+        {
+          "type": "stat",
+          "stat": "attack",
+          "value": 3
+        }
+      ],
+      "sell_price": 18,
+      "stack_max": 1
+    },
+    {
+      "id": "relic_anchor_of_memory",
+      "name": "Anchor of Memory",
+      "type": "relic",
+      "rarity": "rare",
+      "lore": "Relik ini tidak memberi kekuatan — ia menukar sesuatu yang tidak kau sadari.",
+      "tags": [
+        "on_kill"
+      ],
+      "stats": {
+        "attack": 0,
+        "defense": 0,
+        "speed": 0,
+        "max_hp": 0
+      },
+      "effects": [
+        {
+          "type": "stat",
+          "stat": "attack",
+          "value": 5
+        },
+        {
+          "type": "on_hit",
+          "proc": 0.1,
+          "apply": "burn",
+          "damage": 3,
+          "duration": 2
+        }
+      ],
+      "sell_price": 35,
+      "stack_max": 1
+    },
+    {
+      "id": "relic_compass_of_lost_halls",
+      "name": "Compass of Lost Halls",
+      "type": "relic",
+      "rarity": "epic",
+      "lore": "Arkeolog Veil menemukannya terapung di ruangan tanpa pintu. Tidak ada yang meminta untuk mengambilnya.",
+      "tags": [
+        "aura"
+      ],
+      "stats": {
+        "attack": 0,
+        "defense": 0,
+        "speed": 0,
+        "max_hp": 0
+      },
+      "effects": [
+        {
+          "type": "stat",
+          "stat": "defense",
+          "value": 2
+        },
+        {
+          "type": "on_hit",
+          "proc": 0.08,
+          "apply": "slow",
+          "value": 0.5,
+          "duration": 1.5
+        }
+      ],
+      "sell_price": 60,
+      "stack_max": 1
+    },
+    {
+      "id": "consumable_vial_of_veil_blood",
+      "name": "Vial of Veil Blood",
+      "type": "consumable",
+      "rarity": "legendary",
+      "lore": "Rasanya seperti logam dan madu. Efeknya cepat; penyesalannya lambat.",
+      "tags": [
+        "heal"
+      ],
+      "stats": {
+        "attack": 0,
+        "defense": 0,
+        "speed": 0,
+        "max_hp": 0
+      },
+      "effects": [
+        {
+          "type": "on_use",
+          "apply": "heal",
+          "value": 55
+        }
+      ],
+      "sell_price": 120,
+      "stack_max": 5
+    },
+    {
+      "id": "consumable_greater_healing_draught",
+      "name": "Greater Healing Draught",
+      "type": "consumable",
+      "rarity": "common",
+      "lore": "Dibuat oleh apoteker yang tidak pernah meninggalkan dungeon — resepnya masih berdenyut.",
+      "tags": [
+        "buff"
+      ],
+      "stats": {
+        "attack": 0,
+        "defense": 0,
+        "speed": 0,
+        "max_hp": 0
+      },
+      "effects": [
+        {
+          "type": "on_use",
+          "apply": "heal",
+          "value": 25
+        }
+      ],
+      "sell_price": 8,
+      "stack_max": 5
+    },
+    {
+      "id": "consumable_burst_ember_flask",
+      "name": "Burst Ember Flask",
+      "type": "consumable",
+      "rarity": "common",
+      "lore": "Label sudah pudar. Hanya tersisa peringatan: 'Satu dosis. Satu kesempatan.'",
+      "tags": [
+        "damage"
+      ],
+      "stats": {
+        "attack": 0,
+        "defense": 0,
+        "speed": 0,
+        "max_hp": 0
+      },
+      "effects": [
+        {
+          "type": "on_use",
+          "apply": "heal",
+          "value": 35
+        }
+      ],
+      "sell_price": 8,
+      "stack_max": 5
+    },
+    {
+      "id": "consumable_smoke_of_retreat",
+      "name": "Smoke of Retreat",
+      "type": "consumable",
+      "rarity": "common",
+      "lore": "Rasanya seperti logam dan madu. Efeknya cepat; penyesalannya lambat.",
+      "tags": [
+        "utility"
+      ],
+      "stats": {
+        "attack": 0,
+        "defense": 0,
+        "speed": 0,
+        "max_hp": 0
+      },
+      "effects": [
+        {
+          "type": "on_use",
+          "apply": "heal",
+          "value": 45
+        }
+      ],
+      "sell_price": 8,
+      "stack_max": 5
+    },
+    {
+      "id": "consumable_scroll:_abyss_pulse",
+      "name": "Scroll: Abyss Pulse",
+      "type": "consumable",
+      "rarity": "uncommon",
+      "lore": "Dibuat oleh apoteker yang tidak pernah meninggalkan dungeon — resepnya masih berdenyut.",
+      "tags": [
+        "heal"
+      ],
+      "stats": {
+        "attack": 0,
+        "defense": 0,
+        "speed": 0,
+        "max_hp": 0
+      },
+      "effects": [
+        {
+          "type": "on_use",
+          "apply": "heal",
+          "value": 55
+        }
+      ],
+      "sell_price": 18,
+      "stack_max": 5
+    },
+    {
+      "id": "consumable_antidote_spore",
+      "name": "Antidote Spore",
+      "type": "consumable",
+      "rarity": "uncommon",
+      "lore": "Label sudah pudar. Hanya tersisa peringatan: 'Satu dosis. Satu kesempatan.'",
+      "tags": [
+        "buff"
+      ],
+      "stats": {
+        "attack": 0,
+        "defense": 0,
+        "speed": 0,
+        "max_hp": 0
+      },
+      "effects": [
+        {
+          "type": "on_use",
+          "apply": "heal",
+          "value": 25
+        }
+      ],
+      "sell_price": 18,
+      "stack_max": 5
+    },
+    {
+      "id": "consumable_rage_infusion",
+      "name": "Rage Infusion",
+      "type": "consumable",
+      "rarity": "rare",
+      "lore": "Rasanya seperti logam dan madu. Efeknya cepat; penyesalannya lambat.",
+      "tags": [
+        "damage"
+      ],
+      "stats": {
+        "attack": 0,
+        "defense": 0,
+        "speed": 0,
+        "max_hp": 0
+      },
+      "effects": [
+        {
+          "type": "on_use",
+          "apply": "heal",
+          "value": 35
+        }
+      ],
+      "sell_price": 35,
+      "stack_max": 5
+    },
+    {
+      "id": "consumable_shielding_tonic",
+      "name": "Shielding Tonic",
+      "type": "consumable",
+      "rarity": "epic",
+      "lore": "Dibuat oleh apoteker yang tidak pernah meninggalkan dungeon — resepnya masih berdenyut.",
+      "tags": [
+        "utility"
+      ],
+      "stats": {
+        "attack": 0,
+        "defense": 0,
+        "speed": 0,
+        "max_hp": 0
+      },
+      "effects": [
+        {
+          "type": "on_use",
+          "apply": "heal",
+          "value": 45
+        }
+      ],
+      "sell_price": 60,
+      "stack_max": 5
+    },
+    {
+      "id": "consumable_soulfood_ration",
+      "name": "Soulfood Ration",
+      "type": "consumable",
+      "rarity": "legendary",
+      "lore": "Label sudah pudar. Hanya tersisa peringatan: 'Satu dosis. Satu kesempatan.'",
+      "tags": [
+        "heal"
+      ],
+      "stats": {
+        "attack": 0,
+        "defense": 0,
+        "speed": 0,
+        "max_hp": 0
+      },
+      "effects": [
+        {
+          "type": "on_use",
+          "apply": "heal",
+          "value": 55
+        }
+      ],
+      "sell_price": 120,
+      "stack_max": 5
+    },
+    {
+      "id": "consumable_bomb:_shrapnel_core",
+      "name": "Bomb: Shrapnel Core",
+      "type": "consumable",
+      "rarity": "common",
+      "lore": "Rasanya seperti logam dan madu. Efeknya cepat; penyesalannya lambat.",
+      "tags": [
+        "buff"
+      ],
+      "stats": {
+        "attack": 0,
+        "defense": 0,
+        "speed": 0,
+        "max_hp": 0
+      },
+      "effects": [
+        {
+          "type": "on_use",
+          "apply": "heal",
+          "value": 25
+        }
+      ],
+      "sell_price": 8,
+      "stack_max": 5
+    },
+    {
+      "id": "consumable_elixir_of_haste",
+      "name": "Elixir of Haste",
+      "type": "consumable",
+      "rarity": "common",
+      "lore": "Dibuat oleh apoteker yang tidak pernah meninggalkan dungeon — resepnya masih berdenyut.",
+      "tags": [
+        "damage"
+      ],
+      "stats": {
+        "attack": 0,
+        "defense": 0,
+        "speed": 0,
+        "max_hp": 0
+      },
+      "effects": [
+        {
+          "type": "on_use",
+          "apply": "heal",
+          "value": 35
+        }
+      ],
+      "sell_price": 8,
+      "stack_max": 5
+    },
+    {
+      "id": "consumable_phoenix_ash_minor",
+      "name": "Phoenix Ash (Minor)",
+      "type": "consumable",
+      "rarity": "common",
+      "lore": "Label sudah pudar. Hanya tersisa peringatan: 'Satu dosis. Satu kesempatan.'",
+      "tags": [
+        "utility"
+      ],
+      "stats": {
+        "attack": 0,
+        "defense": 0,
+        "speed": 0,
+        "max_hp": 0
+      },
+      "effects": [
+        {
+          "type": "on_use",
+          "apply": "heal",
+          "value": 45
+        }
+      ],
+      "sell_price": 8,
+      "stack_max": 5
+    },
+    {
+      "id": "consumable_oil_of_piercing",
+      "name": "Oil of Piercing",
+      "type": "consumable",
+      "rarity": "uncommon",
+      "lore": "Rasanya seperti logam dan madu. Efeknya cepat; penyesalannya lambat.",
+      "tags": [
+        "heal"
+      ],
+      "stats": {
+        "attack": 0,
+        "defense": 0,
+        "speed": 0,
+        "max_hp": 0
+      },
+      "effects": [
+        {
+          "type": "on_use",
+          "apply": "heal",
+          "value": 55
+        }
+      ],
+      "sell_price": 18,
+      "stack_max": 5
+    },
+    {
+      "id": "consumable_warp_powder",
+      "name": "Warp Powder",
+      "type": "consumable",
+      "rarity": "uncommon",
+      "lore": "Dibuat oleh apoteker yang tidak pernah meninggalkan dungeon — resepnya masih berdenyut.",
+      "tags": [
+        "buff"
+      ],
+      "stats": {
+        "attack": 0,
+        "defense": 0,
+        "speed": 0,
+        "max_hp": 0
+      },
+      "effects": [
+        {
+          "type": "on_use",
+          "apply": "heal",
+          "value": 25
+        }
+      ],
+      "sell_price": 18,
+      "stack_max": 5
+    },
+    {
+      "id": "consumable_golden_sap",
+      "name": "Golden Sap",
+      "type": "consumable",
+      "rarity": "rare",
+      "lore": "Label sudah pudar. Hanya tersisa peringatan: 'Satu dosis. Satu kesempatan.'",
+      "tags": [
+        "damage"
+      ],
+      "stats": {
+        "attack": 0,
+        "defense": 0,
+        "speed": 0,
+        "max_hp": 0
+      },
+      "effects": [
+        {
+          "type": "on_use",
+          "apply": "heal",
+          "value": 35
+        }
+      ],
+      "sell_price": 35,
+      "stack_max": 5
+    },
+    {
+      "id": "consumable_hex_breaker_tea",
+      "name": "Hex Breaker Tea",
+      "type": "consumable",
+      "rarity": "epic",
+      "lore": "Rasanya seperti logam dan madu. Efeknya cepat; penyesalannya lambat.",
+      "tags": [
+        "utility"
+      ],
+      "stats": {
+        "attack": 0,
+        "defense": 0,
+        "speed": 0,
+        "max_hp": 0
+      },
+      "effects": [
+        {
+          "type": "on_use",
+          "apply": "heal",
+          "value": 45
+        }
+      ],
+      "sell_price": 60,
+      "stack_max": 5
+    },
+    {
+      "id": "consumable_thundercap_mushroom",
+      "name": "Thundercap Mushroom",
+      "type": "consumable",
+      "rarity": "legendary",
+      "lore": "Dibuat oleh apoteker yang tidak pernah meninggalkan dungeon — resepnya masih berdenyut.",
+      "tags": [
+        "heal"
+      ],
+      "stats": {
+        "attack": 0,
+        "defense": 0,
+        "speed": 0,
+        "max_hp": 0
+      },
+      "effects": [
+        {
+          "type": "on_use",
+          "apply": "heal",
+          "value": 55
+        }
+      ],
+      "sell_price": 120,
+      "stack_max": 5
+    },
+    {
+      "id": "consumable_ghostbrew",
+      "name": "Ghostbrew",
+      "type": "consumable",
+      "rarity": "common",
+      "lore": "Label sudah pudar. Hanya tersisa peringatan: 'Satu dosis. Satu kesempatan.'",
+      "tags": [
+        "buff"
+      ],
+      "stats": {
+        "attack": 0,
+        "defense": 0,
+        "speed": 0,
+        "max_hp": 0
+      },
+      "effects": [
+        {
+          "type": "on_use",
+          "apply": "heal",
+          "value": 25
+        }
+      ],
+      "sell_price": 8,
+      "stack_max": 5
+    },
+    {
+      "id": "consumable_stoneheart_pill",
+      "name": "Stoneheart Pill",
+      "type": "consumable",
+      "rarity": "common",
+      "lore": "Rasanya seperti logam dan madu. Efeknya cepat; penyesalannya lambat.",
+      "tags": [
+        "damage"
+      ],
+      "stats": {
+        "attack": 0,
+        "defense": 0,
+        "speed": 0,
+        "max_hp": 0
+      },
+      "effects": [
+        {
+          "type": "on_use",
+          "apply": "heal",
+          "value": 35
+        }
+      ],
+      "sell_price": 8,
+      "stack_max": 5
+    },
+    {
+      "id": "consumable_lotus_of_clarity",
+      "name": "Lotus of Clarity",
+      "type": "consumable",
+      "rarity": "common",
+      "lore": "Dibuat oleh apoteker yang tidak pernah meninggalkan dungeon — resepnya masih berdenyut.",
+      "tags": [
+        "utility"
+      ],
+      "stats": {
+        "attack": 0,
+        "defense": 0,
+        "speed": 0,
+        "max_hp": 0
+      },
+      "effects": [
+        {
+          "type": "on_use",
+          "apply": "heal",
+          "value": 45
+        }
+      ],
+      "sell_price": 8,
+      "stack_max": 5
+    },
+    {
+      "id": "material_void_shard",
+      "name": "Void Shard",
+      "type": "material",
+      "rarity": "uncommon",
+      "lore": "Bahan ini dipakai crafter Veil untuk mengikat efek pada senjata — atau melepaskannya.",
+      "tags": [
+        "craft"
+      ],
+      "stats": {
+        "attack": 0,
+        "defense": 0,
+        "speed": 0,
+        "max_hp": 0
+      },
+      "effects": [
+        {
+          "type": "on_kill",
+          "proc": 1.0,
+          "apply": "heal",
+          "value": 5
+        }
+      ],
+      "sell_price": 18,
+      "stack_max": 1
+    },
+    {
+      "id": "material_catacomb_dust",
+      "name": "Catacomb Dust",
+      "type": "material",
+      "rarity": "uncommon",
+      "lore": "Disimpan dalam kantong timah agar tidak 'bangun' di malam hari.",
+      "tags": [
+        "craft"
+      ],
+      "stats": {
+        "attack": 0,
+        "defense": 0,
+        "speed": 0,
+        "max_hp": 0
+      },
+      "effects": [
+        {
+          "type": "passive",
+          "apply": "lifesteal",
+          "value": 0.05
+        }
+      ],
+      "sell_price": 18,
+      "stack_max": 1
+    },
+    {
+      "id": "material_mycelium_fiber",
+      "name": "Mycelium Fiber",
+      "type": "material",
+      "rarity": "rare",
+      "lore": "Pedagang di hub membelinya mahal; mereka tidak tahu dari mana asalnya — dan tidak ingin tahu.",
+      "tags": [
+        "craft"
+      ],
+      "stats": {
+        "attack": 0,
+        "defense": 0,
+        "speed": 0,
+        "max_hp": 0
+      },
+      "effects": [
+        {
+          "type": "passive",
+          "apply": "crit_chance",
+          "value": 0.08
+        },
+        {
+          "type": "stat",
+          "stat": "max_hp",
+          "value": 25
+        }
+      ],
+      "sell_price": 35,
+      "stack_max": 1
+    },
+    {
+      "id": "material_crystal_splinter",
+      "name": "Crystal Splinter",
+      "type": "material",
+      "rarity": "epic",
+      "lore": "Bahan ini dipakai crafter Veil untuk mengikat efek pada senjata — atau melepaskannya.",
+      "tags": [
+        "craft"
+      ],
+      "stats": {
+        "attack": 0,
+        "defense": 0,
+        "speed": 0,
+        "max_hp": 0
+      },
+      "effects": [
+        {
+          "type": "stat",
+          "stat": "attack",
+          "value": 3
+        },
+        {
+          "type": "on_hit",
+          "proc": 0.12,
+          "apply": "bleed",
+          "damage": 2,
+          "duration": 3
+        }
+      ],
+      "sell_price": 60,
+      "stack_max": 1
+    },
+    {
+      "id": "material_wraith_essence",
+      "name": "Wraith Essence",
+      "type": "material",
+      "rarity": "legendary",
+      "lore": "Disimpan dalam kantong timah agar tidak 'bangun' di malam hari.",
+      "tags": [
+        "craft"
+      ],
+      "stats": {
+        "attack": 0,
+        "defense": 0,
+        "speed": 0,
+        "max_hp": 0
+      },
+      "effects": [
+        {
+          "type": "stat",
+          "stat": "attack",
+          "value": 5
+        },
+        {
+          "type": "on_hit",
+          "proc": 0.1,
+          "apply": "burn",
+          "damage": 3,
+          "duration": 2
+        }
+      ],
+      "sell_price": 120,
+      "stack_max": 1
+    },
+    {
+      "id": "material_blood_amber",
+      "name": "Blood Amber",
+      "type": "material",
+      "rarity": "common",
+      "lore": "Pedagang di hub membelinya mahal; mereka tidak tahu dari mana asalnya — dan tidak ingin tahu.",
+      "tags": [
+        "craft"
+      ],
+      "stats": {
+        "attack": 0,
+        "defense": 0,
+        "speed": 0,
+        "max_hp": 0
+      },
+      "effects": [
+        {
+          "type": "stat",
+          "stat": "defense",
+          "value": 2
+        }
+      ],
+      "sell_price": 8,
+      "stack_max": 1
+    },
+    {
+      "id": "material_iron_scrap_veil",
+      "name": "Iron Scrap (Veil)",
+      "type": "material",
+      "rarity": "common",
+      "lore": "Bahan ini dipakai crafter Veil untuk mengikat efek pada senjata — atau melepaskannya.",
+      "tags": [
+        "craft"
+      ],
+      "stats": {
+        "attack": 0,
+        "defense": 0,
+        "speed": 0,
+        "max_hp": 0
+      },
+      "effects": [
+        {
+          "type": "stat",
+          "stat": "defense",
+          "value": 4
+        }
+      ],
+      "sell_price": 8,
+      "stack_max": 1
+    },
+    {
+      "id": "material_soul_thread",
+      "name": "Soul Thread",
+      "type": "material",
+      "rarity": "common",
+      "lore": "Disimpan dalam kantong timah agar tidak 'bangun' di malam hari.",
+      "tags": [
+        "craft"
+      ],
+      "stats": {
+        "attack": 0,
+        "defense": 0,
+        "speed": 0,
+        "max_hp": 0
+      },
+      "effects": [
+        {
+          "type": "stat",
+          "stat": "speed",
+          "value": 10
+        }
+      ],
+      "sell_price": 8,
+      "stack_max": 1
+    },
+    {
+      "id": "material_corrupted_bone",
+      "name": "Corrupted Bone",
+      "type": "material",
+      "rarity": "uncommon",
+      "lore": "Pedagang di hub membelinya mahal; mereka tidak tahu dari mana asalnya — dan tidak ingin tahu.",
+      "tags": [
+        "craft"
+      ],
+      "stats": {
+        "attack": 0,
+        "defense": 0,
+        "speed": 0,
+        "max_hp": 0
+      },
+      "effects": [
+        {
+          "type": "stat",
+          "stat": "max_hp",
+          "value": 15
+        }
+      ],
+      "sell_price": 18,
+      "stack_max": 1
+    },
+    {
+      "id": "material_abyss_pearl",
+      "name": "Abyss Pearl",
+      "type": "material",
+      "rarity": "uncommon",
+      "lore": "Bahan ini dipakai crafter Veil untuk mengikat efek pada senjata — atau melepaskannya.",
+      "tags": [
+        "craft"
+      ],
+      "stats": {
+        "attack": 0,
+        "defense": 0,
+        "speed": 0,
+        "max_hp": 0
+      },
+      "effects": [
+        {
+          "type": "stat",
+          "stat": "max_hp",
+          "value": 25
+        }
+      ],
+      "sell_price": 18,
+      "stack_max": 1
+    },
+    {
+      "id": "material_ember_coal",
+      "name": "Ember Coal",
+      "type": "material",
+      "rarity": "rare",
+      "lore": "Disimpan dalam kantong timah agar tidak 'bangun' di malam hari.",
+      "tags": [
+        "craft"
+      ],
+      "stats": {
+        "attack": 0,
+        "defense": 0,
+        "speed": 0,
+        "max_hp": 0
+      },
+      "effects": [
+        {
+          "type": "on_hit",
+          "proc": 0.12,
+          "apply": "bleed",
+          "damage": 2,
+          "duration": 3
+        },
+        {
+          "type": "stat",
+          "stat": "attack",
+          "value": 5
+        }
+      ],
+      "sell_price": 35,
+      "stack_max": 1
+    },
+    {
+      "id": "material_frost_scale",
+      "name": "Frost Scale",
+      "type": "material",
+      "rarity": "epic",
+      "lore": "Pedagang di hub membelinya mahal; mereka tidak tahu dari mana asalnya — dan tidak ingin tahu.",
+      "tags": [
+        "craft"
+      ],
+      "stats": {
+        "attack": 0,
+        "defense": 0,
+        "speed": 0,
+        "max_hp": 0
+      },
+      "effects": [
+        {
+          "type": "on_hit",
+          "proc": 0.1,
+          "apply": "burn",
+          "damage": 3,
+          "duration": 2
+        },
+        {
+          "type": "stat",
+          "stat": "defense",
+          "value": 2
+        }
+      ],
+      "sell_price": 60,
+      "stack_max": 1
+    },
+    {
+      "id": "material_storm_glass",
+      "name": "Storm Glass",
+      "type": "material",
+      "rarity": "legendary",
+      "lore": "Bahan ini dipakai crafter Veil untuk mengikat efek pada senjata — atau melepaskannya.",
+      "tags": [
+        "craft"
+      ],
+      "stats": {
+        "attack": 0,
+        "defense": 0,
+        "speed": 0,
+        "max_hp": 0
+      },
+      "effects": [
+        {
+          "type": "on_hit",
+          "proc": 0.08,
+          "apply": "slow",
+          "value": 0.5,
+          "duration": 1.5
+        },
+        {
+          "type": "stat",
+          "stat": "defense",
+          "value": 4
+        }
+      ],
+      "sell_price": 120,
+      "stack_max": 1
+    },
+    {
+      "id": "material_grave_moss",
+      "name": "Grave Moss",
+      "type": "material",
+      "rarity": "common",
+      "lore": "Disimpan dalam kantong timah agar tidak 'bangun' di malam hari.",
+      "tags": [
+        "craft"
+      ],
+      "stats": {
+        "attack": 0,
+        "defense": 0,
+        "speed": 0,
+        "max_hp": 0
+      },
+      "effects": [
+        {
+          "type": "on_kill",
+          "proc": 1.0,
+          "apply": "heal",
+          "value": 5
+        }
+      ],
+      "sell_price": 8,
+      "stack_max": 1
+    },
+    {
+      "id": "material_penitent_wax",
+      "name": "Penitent Wax",
+      "type": "material",
+      "rarity": "common",
+      "lore": "Pedagang di hub membelinya mahal; mereka tidak tahu dari mana asalnya — dan tidak ingin tahu.",
+      "tags": [
+        "craft"
+      ],
+      "stats": {
+        "attack": 0,
+        "defense": 0,
+        "speed": 0,
+        "max_hp": 0
+      },
+      "effects": [
+        {
+          "type": "passive",
+          "apply": "lifesteal",
+          "value": 0.05
+        }
+      ],
+      "sell_price": 8,
+      "stack_max": 1
+    },
+    {
+      "id": "weapon_blade_of_whispers_v0",
+      "name": "Blade of Whispers (Veilbound)",
+      "type": "weapon",
+      "rarity": "common",
+      "lore": "Ditempa di bawah Veil ketika langit masih punya bintang. Pedang ini berbisik nama-nama yang sudah dilupakan. Variasi Veilbound — energi abyss mengikis tepinya.",
+      "tags": [
+        "melee"
+      ],
+      "stats": {
+        "attack": 4,
+        "defense": 0,
+        "speed": 0,
+        "max_hp": 0
+      },
+      "effects": [
+        {
+          "type": "stat",
+          "stat": "attack",
+          "value": 3
+        }
+      ],
+      "sell_price": 13,
+      "stack_max": 1
+    },
+    {
+      "id": "weapon_crimson_fang_v1",
+      "name": "Crimson Fang (Veilbound)",
+      "type": "weapon",
+      "rarity": "uncommon",
+      "lore": "Setiap tebasan meninggalkan jejak dingin — bukan dari logam, tapi dari kenangan pemilik sebelumnya. Variasi Veilbound — energi abyss mengikis tepinya.",
+      "tags": [
+        "melee",
+        "bleed"
+      ],
+      "stats": {
+        "attack": 5,
+        "defense": 0,
+        "speed": 0,
+        "max_hp": 0
+      },
+      "effects": [
+        {
+          "type": "stat",
+          "stat": "attack",
+          "value": 5
+        }
+      ],
+      "sell_price": 23,
+      "stack_max": 1
+    },
+    {
+      "id": "weapon_void_needle_v2",
+      "name": "Void Needle (Veilbound)",
+      "type": "weapon",
+      "rarity": "uncommon",
+      "lore": "Para Penjaga Veil memakai senjata ini sebagai hukuman: mereka yang gagal, senjata mereka yang menang. Variasi Veilbound — energi abyss mengikis tepinya.",
+      "tags": [
+        "melee",
+        "fire"
+      ],
+      "stats": {
+        "attack": 6,
+        "defense": 0,
+        "speed": 0,
+        "max_hp": 0
+      },
+      "effects": [
+        {
+          "type": "stat",
+          "stat": "defense",
+          "value": 2
+        }
+      ],
+      "sell_price": 23,
+      "stack_max": 1
+    },
+    {
+      "id": "weapon_sanctum_breaker_v3",
+      "name": "Sanctum Breaker (Veilbound)",
+      "type": "weapon",
+      "rarity": "rare",
+      "lore": "Ditempa di bawah Veil ketika langit masih punya bintang. Pedang ini berbisik nama-nama yang sudah dilupakan. Variasi Veilbound — energi abyss mengikis tepinya.",
+      "tags": [
+        "ranged"
+      ],
+      "stats": {
+        "attack": 7,
+        "defense": 0,
+        "speed": 0,
+        "max_hp": 0
+      },
+      "effects": [
+        {
+          "type": "stat",
+          "stat": "defense",
+          "value": 4
+        }
+      ],
+      "sell_price": 40,
+      "stack_max": 1
+    },
+    {
+      "id": "weapon_moonlit_rapier_v4",
+      "name": "Moonlit Rapier (Veilbound)",
+      "type": "weapon",
+      "rarity": "epic",
+      "lore": "Setiap tebasan meninggalkan jejak dingin — bukan dari logam, tapi dari kenangan pemilik sebelumnya. Variasi Veilbound — energi abyss mengikis tepinya.",
+      "tags": [
+        "melee",
+        "crit"
+      ],
+      "stats": {
+        "attack": 8,
+        "defense": 0,
+        "speed": 0,
+        "max_hp": 0
+      },
+      "effects": [
+        {
+          "type": "stat",
+          "stat": "speed",
+          "value": 10
+        }
+      ],
+      "sell_price": 65,
+      "stack_max": 1
+    },
+    {
+      "id": "weapon_ashbringer_stub_v5",
+      "name": "Ashbringer Stub (Veilbound)",
+      "type": "weapon",
+      "rarity": "legendary",
+      "lore": "Para Penjaga Veil memakai senjata ini sebagai hukuman: mereka yang gagal, senjata mereka yang menang. Variasi Veilbound — energi abyss mengikis tepinya.",
+      "tags": [
+        "melee"
+      ],
+      "stats": {
+        "attack": 9,
+        "defense": 0,
+        "speed": 0,
+        "max_hp": 0
+      },
+      "effects": [
+        {
+          "type": "stat",
+          "stat": "max_hp",
+          "value": 15
+        },
+        {
+          "type": "passive",
+          "apply": "crit_chance",
+          "value": 0.08
+        }
+      ],
+      "sell_price": 125,
+      "stack_max": 1
+    },
+    {
+      "id": "weapon_soul_carver_v6",
+      "name": "Soul Carver (Veilbound)",
+      "type": "weapon",
+      "rarity": "common",
+      "lore": "Ditempa di bawah Veil ketika langit masih punya bintang. Pedang ini berbisik nama-nama yang sudah dilupakan. Variasi Veilbound — energi abyss mengikis tepinya.",
+      "tags": [
+        "melee",
+        "bleed"
+      ],
+      "stats": {
+        "attack": 10,
+        "defense": 0,
+        "speed": 0,
+        "max_hp": 0
+      },
+      "effects": [
+        {
+          "type": "stat",
+          "stat": "max_hp",
+          "value": 25
+        },
+        {
+          "type": "stat",
+          "stat": "attack",
+          "value": 3
+        }
+      ],
+      "sell_price": 13,
+      "stack_max": 1
+    },
+    {
+      "id": "weapon_gravepicker_v7",
+      "name": "Gravepicker (Veilbound)",
+      "type": "weapon",
+      "rarity": "common",
+      "lore": "Setiap tebasan meninggalkan jejak dingin — bukan dari logam, tapi dari kenangan pemilik sebelumnya. Variasi Veilbound — energi abyss mengikis tepinya.",
+      "tags": [
+        "melee",
+        "fire"
+      ],
+      "stats": {
+        "attack": 11,
+        "defense": 0,
+        "speed": 0,
+        "max_hp": 0
+      },
+      "effects": [
+        {
+          "type": "on_hit",
+          "proc": 0.12,
+          "apply": "bleed",
+          "damage": 2,
+          "duration": 3
+        },
+        {
+          "type": "stat",
+          "stat": "attack",
+          "value": 5
+        }
+      ],
+      "sell_price": 13,
+      "stack_max": 1
+    },
+    {
+      "id": "weapon_echo_katana_v8",
+      "name": "Echo Katana (Veilbound)",
+      "type": "weapon",
+      "rarity": "common",
+      "lore": "Para Penjaga Veil memakai senjata ini sebagai hukuman: mereka yang gagal, senjata mereka yang menang. Variasi Veilbound — energi abyss mengikis tepinya.",
+      "tags": [
+        "ranged"
+      ],
+      "stats": {
+        "attack": 12,
+        "defense": 0,
+        "speed": 0,
+        "max_hp": 0
+      },
+      "effects": [
+        {
+          "type": "on_hit",
+          "proc": 0.1,
+          "apply": "burn",
+          "damage": 3,
+          "duration": 2
+        }
+      ],
+      "sell_price": 13,
+      "stack_max": 1
+    },
+    {
+      "id": "weapon_abyss_cleaver_v9",
+      "name": "Abyss Cleaver (Veilbound)",
+      "type": "weapon",
+      "rarity": "uncommon",
+      "lore": "Ditempa di bawah Veil ketika langit masih punya bintang. Pedang ini berbisik nama-nama yang sudah dilupakan. Variasi Veilbound — energi abyss mengikis tepinya.",
+      "tags": [
+        "melee",
+        "crit"
+      ],
+      "stats": {
+        "attack": 13,
+        "defense": 0,
+        "speed": 0,
+        "max_hp": 0
+      },
+      "effects": [
+        {
+          "type": "on_hit",
+          "proc": 0.08,
+          "apply": "slow",
+          "value": 0.5,
+          "duration": 1.5
+        }
+      ],
+      "sell_price": 23,
+      "stack_max": 1
+    }
+  ]
+}

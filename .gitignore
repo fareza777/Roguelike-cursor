@@ -1,0 +1,27 @@
+# Godot
+.godot/
+*.translation
+export_presets.cfg.bak
+
+# Import cache
+.import/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+*.swp
+
+# Android export (local SDK paths)
+android/
+
+# Builds
+build/
+*.apk
+*.aab
+
+# Python
+__pycache__/
+*.pyc

@@ -1,0 +1,120 @@
+[gd_scene load_steps=5 format=3 uid="uid://room001"]
+
+[ext_resource type="Script" path="res://scripts/dungeon/room_controller.gd" id="1"]
+[ext_resource type="Shader" path="res://assets/shaders/floor_variation.gdshader" id="2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_floor"]
+shader = ExtResource("2")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wall_h"]
+size = Vector2(820, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wall_v"]
+size = Vector2(40, 520)
+
+[node name="CombatRoom" type="Node2D"]
+script = ExtResource("1")
+enemy_ids = Array[String](["slime_void", "bat_carrion", "skeleton_penitent", "rat_bonegnaw", "imp_ember"])
+spawn_count = 6
+
+[node name="Background" type="ColorRect" parent="."]
+offset_left = -500.0
+offset_top = -400.0
+offset_right = 1180.0
+offset_bottom = 800.0
+color = Color(0.039, 0.039, 0.071, 1)
+
+[node name="Floor" type="Polygon2D" parent="."]
+material = SubResource("ShaderMaterial_floor")
+position = Vector2(340, 360)
+polygon = PackedVector2Array(-400, -280, 400, -280, 400, 280, -400, 280)
+
+[node name="FloorAccent" type="Polygon2D" parent="."]
+color = Color(0.42, 0.3, 0.65, 0.08)
+position = Vector2(340, 360)
+polygon = PackedVector2Array(-380, -260, 380, -260, 380, 260, -380, 260)
+
+[node name="Walls" type="StaticBody2D" parent="."]
+collision_layer = 1
+collision_mask = 0
+
+[node name="WallTop" type="CollisionShape2D" parent="Walls"]
+position = Vector2(340, 80)
+shape = SubResource("RectangleShape2D_wall_h")
+
+[node name="WallBottom" type="CollisionShape2D" parent="Walls"]
+position = Vector2(340, 640)
+shape = SubResource("RectangleShape2D_wall_h")
+
+[node name="WallLeft" type="CollisionShape2D" parent="Walls"]
+position = Vector2(-60, 360)
+shape = SubResource("RectangleShape2D_wall_v")
+
+[node name="WallRight" type="CollisionShape2D" parent="Walls"]
+position = Vector2(740, 360)
+shape = SubResource("RectangleShape2D_wall_v")
+
+[node name="Props" type="Node2D" parent="."]
+
+[node name="Pillar1" type="Polygon2D" parent="Props"]
+position = Vector2(180, 220)
+color = Color(0.2, 0.18, 0.28, 1)
+polygon = PackedVector2Array(-18, 30, 18, 30, 14, -30, -14, -30)
+
+[node name="Pillar2" type="Polygon2D" parent="Props"]
+position = Vector2(520, 480)
+color = Color(0.2, 0.18, 0.28, 1)
+polygon = PackedVector2Array(-18, 30, 18, 30, 14, -30, -14, -30)
+
+[node name="Pillar3" type="Polygon2D" parent="Props"]
+position = Vector2(580, 200)
+color = Color(0.22, 0.2, 0.32, 1)
+polygon = PackedVector2Array(-14, 24, 14, 24, 10, -24, -10, -24)
+
+[node name="TorchLight1" type="PointLight2D" parent="."]
+position = Vector2(180, 220)
+color = Color(0.85, 0.55, 0.25, 1)
+energy = 1.2
+texture_scale = 2.5
+
+[node name="TorchLight2" type="PointLight2D" parent="."]
+position = Vector2(520, 480)
+color = Color(0.6, 0.45, 0.9, 1)
+energy = 1.0
+texture_scale = 2.2
+
+[node name="TorchLight3" type="PointLight2D" parent="."]
+position = Vector2(580, 200)
+color = Color(0.4, 0.7, 0.85, 1)
+energy = 0.9
+texture_scale = 2.0
+
+[node name="AmbientLight" type="DirectionalLight2D" parent="."]
+color = Color(0.35, 0.32, 0.5, 1)
+energy = 0.35
+
+[node name="SpawnPoints" type="Node2D" parent="."]
+
+[node name="S1" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(200, 180)
+
+[node name="S2" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(500, 160)
+
+[node name="S3" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(620, 320)
+
+[node name="S4" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(450, 500)
+
+[node name="S5" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(250, 450)
+
+[node name="S6" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(380, 280)
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="FloorLayer" type="TileMapLayer" parent="."]
+
+[node name="WallsLayer" type="TileMapLayer" parent="."]
