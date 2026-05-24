@@ -47,8 +47,8 @@ def validate_enemies(data):
     enemies = data.get("enemies", [])
     ids = set()
     errors = []
-    if len(enemies) != 20:
-        errors.append(f"Expected 20 enemies, got {len(enemies)}")
+    if len(enemies) < 20:
+        errors.append(f"Expected at least 20 enemies, got {len(enemies)}")
     for en in enemies:
         eid = en.get("id")
         if not eid or eid in ids:
@@ -75,7 +75,8 @@ def main():
         for e in all_err:
             print("ERROR:", e)
         sys.exit(1)
-    print("OK: 100 items, 20 enemies validated.")
+    enemy_count = len(load("enemies.json").get("enemies", []))
+    print(f"OK: 100 items, {enemy_count} enemies validated.")
 
 
 if __name__ == "__main__":

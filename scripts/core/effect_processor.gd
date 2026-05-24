@@ -129,10 +129,10 @@ static func _apply_consumable_effect(eff: Dictionary, player: Node) -> void:
 static func _apply_consumable_aoe(eff: Dictionary, player: Node) -> void:
 	var radius: float = float(eff.get("radius", 120))
 	var dmg: float = float(eff.get("damage", 40))
-	_damage_enemies_in_radius(player, radius, dmg, player)
+		damage_enemies_in_radius(player, radius, dmg, player)
 
 
-static func _damage_enemies_in_radius(origin: Node2D, radius: float, damage: float, source: Node) -> void:
+static func damage_enemies_in_radius(origin: Node2D, radius: float, damage: float, source: Node) -> void:
 	if origin == null:
 		return
 	for node in origin.get_tree().get_nodes_in_group("enemy"):

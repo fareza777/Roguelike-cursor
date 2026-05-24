@@ -7,6 +7,8 @@ var items_by_type: Dictionary = {}
 var loot_tables: Dictionary = {}
 var affixes: Array = []
 var synergy_rules: Array = []
+var elite_affixes: Array = []
+var room_modifiers: Array = []
 
 var _loaded := false
 
@@ -21,6 +23,8 @@ func reload_all() -> void:
 	_load_loot_tables()
 	_load_affixes()
 	_load_synergies()
+	_load_elite_affixes()
+	_load_room_modifiers()
 	_loaded = true
 
 
@@ -105,6 +109,43 @@ func get_affix_list() -> Array:
 
 func get_synergy_rules() -> Array:
 	return synergy_rules
+
+
+func get_elite_affixes() -> Array:
+	return elite_affixes
+
+
+func _load_elite_affixes() -> void:
+	elite_affixes.clear()
+	var path := "res://data/elite_affixes.json"
+	if FileAccess.file_exists(path):
+		var parsed = JSON.parse_string(FileAccess.get_file_as_string(path))
+		if parsed is Dictionary:
+			elite_affixes = parsed.get("affixes", [])
+
+
+func _load_room_modifiers() -> void:
+	room_modifiers.clear()
+	var path := "res://data/room_modifiers.json"
+	if FileAccess.file_exists(path):
+		var parsed = JSON.parse_string(FileAccess.get_file_as_string(path))
+		if parsed is Dictionary:
+			room_modifiers = parsed.get("modifiers", [])
+
+
+func roll_room_modifier() -> Dictionary:
+	if room_modifiers.is_empty():
+		return {}
+	var total := 0
+	for m in room_modifiers:
+		total += int(m.get("weight", 1))
+	var roll := randi() % maxi(1, total)
+	var acc := 0
+	for m in room_modifiers:
+		acc += int(m.get("weight", 1))
+		if roll < acc:
+			return m.duplicate(true)
+	return {}
 
 
 func get_random_item(rarity_filter: String = "") -> Dictionary:

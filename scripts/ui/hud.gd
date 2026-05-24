@@ -104,12 +104,17 @@ func _on_run_ended(victory: bool) -> void:
 			title.text = "Veil Conquered!" if victory else "Veil Claims You"
 		var stats := game_over_panel.get_node_or_null("VBox/Stats")
 		if stats:
-			stats.text = "Kills: %d | Gold: %d | Rooms: %d | Time: %ds" % [
+			var shards := MetaManager.compute_run_shards(victory, GameManager.kills_this_run, GameManager.rooms_cleared_total)
+			stats.text = "Kills: %d | Gold: %d | Rooms: %d | Time: %ds | +%d Shards" % [
 				GameManager.kills_this_run,
 				GameManager.gold,
 				GameManager.rooms_cleared_total,
 				int(GameManager.run_time_sec),
+				shards,
 			]
+		var restart := game_over_panel.get_node_or_null("VBox/RestartBtn")
+		if restart:
+			restart.text = "Return to Sanctum"
 
 
 func _show_toast(msg: String) -> void:
@@ -123,4 +128,4 @@ func _show_toast(msg: String) -> void:
 
 
 func _on_restart_pressed() -> void:
-	GameManager.restart_run()
+	GameManager.return_to_hub()

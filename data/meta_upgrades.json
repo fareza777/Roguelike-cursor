@@ -1,0 +1,17 @@
+{
+  "data_version": 1,
+  "upgrades": [
+    { "id": "hp_1", "name": "Veil Vitality I", "desc": "+15 max HP", "cost": 5, "max_level": 5, "effect": { "max_hp": 15 } },
+    { "id": "atk_1", "name": "Strike Training I", "desc": "+2 base attack", "cost": 5, "max_level": 5, "effect": { "attack": 2 } },
+    { "id": "def_1", "name": "Hardened Will I", "desc": "+1 defense", "cost": 4, "max_level": 5, "effect": { "defense": 1 } },
+    { "id": "spd_1", "name": "Light Steps I", "desc": "+8 move speed", "cost": 4, "max_level": 5, "effect": { "speed": 8 } },
+    { "id": "gold_1", "name": "Greed Trace", "desc": "+10% gold found", "cost": 6, "max_level": 3, "effect": { "gold_mult": 0.1 } },
+    { "id": "dodge_1", "name": "Afterimage", "desc": "-0.1s dodge cooldown", "cost": 8, "max_level": 3, "effect": { "dodge_cd": -0.1 } },
+    { "id": "start_weapon", "name": "Heir Blade", "desc": "Start with uncommon weapon", "cost": 12, "max_level": 1, "effect": { "start_weapon_rarity": "uncommon" } },
+    { "id": "start_potion", "name": "Apothecary Kit", "desc": "Start with healing consumable", "cost": 8, "max_level": 1, "effect": { "start_potion": true } },
+    { "id": "shard_bonus", "name": "Soul Echo", "desc": "+1 soul shard per run end", "cost": 10, "max_level": 3, "effect": { "shard_bonus": 1 } },
+    { "id": "crit_base", "name": "Dead Eye", "desc": "+3% base crit", "cost": 7, "max_level": 4, "effect": { "crit_chance": 0.03 } },
+    { "id": "shop_discount", "name": "Merchant Favor", "desc": "-8% shop prices", "cost": 9, "max_level": 3, "effect": { "shop_discount": 0.08 } },
+    { "id": "revive", "name": "Veil Bargain", "desc": "Once per run: revive at 30% HP", "cost": 25, "max_level": 1, "effect": { "extra_revive": true } }
+  ]
+}

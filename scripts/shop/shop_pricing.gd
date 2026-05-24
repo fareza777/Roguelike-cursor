@@ -12,4 +12,5 @@ static func get_buy_price(item: Dictionary, floor_num: int = 1) -> int:
 		"legendary": rarity_mult = 3.2
 	var floor_mult := 1.0 + (floor_num - 1) * 0.12
 	var affix_mult := 1.25 if item.get("has_affixes", false) else 1.0
-	return int(base * 2.0 * rarity_mult * floor_mult * affix_mult)
+	var discount := 1.0 - float(MetaManager.get_total_effect().get("shop_discount", 0.0))
+	return int(base * 2.0 * rarity_mult * floor_mult * affix_mult * discount)

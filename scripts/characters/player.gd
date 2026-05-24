@@ -73,14 +73,17 @@ func _physics_process(delta: float) -> void:
 		_dodge_timer -= delta
 		move_and_slide()
 		return
-	var input_dir := Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	var input_dir := TouchInputManager.get_move_vector()
+	if input_dir.length_squared() < 0.01:
+		input_dir = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	velocity = input_dir * move_speed
 	if input_dir.length_squared() > 0.01:
 		rotation = input_dir.angle()
 	move_and_slide()
-	if Input.is_action_just_pressed("dodge") and _dodge_cd <= 0.0 and input_dir.length_squared() > 0.01:
+	var dodge_req := Input.is_action_just_pressed("dodge") or TouchInputManager.consume_dodge()
+	if dodge_req and _dodge_cd <= 0.0 and input_dir.length_squared() > 0.01:
 		_start_dodge(input_dir)
-	if Input.is_action_pressed("attack") and _attack_cd <= 0.0:
+	if (Input.is_action_pressed("attack") or TouchInputManager.consume_attack()) and _attack_cd <= 0.0:
 		_try_attack()
 
 
@@ -136,7 +139,8 @@ func take_damage(amount: float, source: Node = null, tags: Array = []) -> void:
 		EffectProcessor.apply_on_damaged(items, source, self)
 	EventBus.player_damaged.emit(amount, source)
 	if current_hp <= 0.0:
-		GameManager.end_run(false)
+		if not GameManager.try_revive(self):
+			GameManager.end_run(false)
 
 
 func _on_death() -> void:

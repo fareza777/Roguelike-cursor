@@ -1,0 +1,26 @@
+{
+  "data_version": 1,
+  "profiles": {
+    "slime_void": { "pattern": "slow_chase", "telegraph": false },
+    "bat_carrion": { "pattern": "orbit_ranged", "telegraph": true, "projectile_speed": 320 },
+    "skeleton_penitent": { "pattern": "lunge_melee", "telegraph": true, "lunge_speed": 280 },
+    "mushroom_sporeling": { "pattern": "spore_burst", "telegraph": true },
+    "ghost_lantern": { "pattern": "blink_ranged", "telegraph": true },
+    "rat_bonegnaw": { "pattern": "swarm_charge", "telegraph": false },
+    "cultist_veil": { "pattern": "circle_cast", "telegraph": true },
+    "golem_shard": { "pattern": "tank_melee", "telegraph": true },
+    "spider_webbed": { "pattern": "ambush_dash", "telegraph": true },
+    "imp_ember": { "pattern": "fire_kite", "telegraph": true },
+    "zombie_flooded": { "pattern": "slow_aoe", "telegraph": true },
+    "archer_bone": { "pattern": "snipe", "telegraph": true },
+    "hound_shadow": { "pattern": "phase_charge", "telegraph": true },
+    "knight_hollow": { "pattern": "block_melee", "telegraph": true },
+    "witch_fungal": { "pattern": "summoner", "telegraph": false },
+    "beast_chimera": { "pattern": "multi_lunge", "telegraph": true },
+    "golem_crystal": { "pattern": "reflect_tank", "telegraph": true },
+    "reaper_mini": { "pattern": "scythe_arc", "telegraph": true },
+    "boss_warden": { "pattern": "boss_warden", "telegraph": true, "phases": 2 },
+    "boss_heart": { "pattern": "boss_heart", "telegraph": true, "phases": 3 },
+    "boss_veil_serpent": { "pattern": "boss_serpent", "telegraph": true, "phases": 2 }
+  }
+}

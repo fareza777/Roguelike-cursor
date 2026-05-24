@@ -382,6 +382,26 @@
       "xp": 50
     },
     {
+      "id": "boss_veil_serpent",
+      "name": "Veil Serpent",
+      "tier": "boss",
+      "lore": "Boss. Ular raksasa yang melilit hall ketiga. Menyerang dengan gelombang dari empat arah.",
+      "stats": {
+        "max_hp": 420,
+        "attack": 18,
+        "defense": 6,
+        "speed": 65,
+        "attack_range": 95,
+        "attack_cooldown": 1.1
+      },
+      "behavior": "boss_phased",
+      "loot_table": "boss_drop",
+      "tags": [
+        "boss"
+      ],
+      "xp": 50
+    },
+    {
       "id": "boss_heart",
       "name": "Heart of the Abyss (Seed)",
       "tier": "boss",

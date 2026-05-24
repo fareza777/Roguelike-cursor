@@ -1,0 +1,11 @@
+{
+  "ui_hub_title": "Veil of Abyss",
+  "ui_start_run": "Start Run",
+  "ui_endless": "Endless Mode",
+  "ui_daily": "Daily Challenge",
+  "ui_upgrades": "Sanctum Upgrades",
+  "ui_soul_shards": "Soul Shards: %d",
+  "ui_victory": "Veil Conquered!",
+  "ui_defeat": "The Veil Claims You",
+  "ui_press_e": "Press E to continue"
+}

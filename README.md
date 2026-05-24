@@ -21,7 +21,7 @@ Kau adalah **Penjaga Veil** — terjebak di dungeon yang berubah setiap run. Kum
 1. Install [Godot 4.3+](https://godotengine.org/download)
 2. Clone repo ini
 3. Buka folder di Godot → **Import** `project.godot`
-4. Tekan **F5** (scene utama: `scenes/main/Main.tscn`)
+4. Tekan **F5** (scene utama: `scenes/main/Hub.tscn`)
 
 ### Kontrol (desktop dev)
 
@@ -51,7 +51,7 @@ Kau adalah **Penjaga Veil** — terjebak di dungeon yang berubah setiap run. Kum
 
 Lihat **[ROADMAP.md](ROADMAP.md)** untuk fase pengembangan lengkap (Fase 0 fondasi → Play Store → live ops).
 
-**Fase saat ini:** Fase 2 — affix, sinergi, codex, consumable lengkap.
+**Versi:** `1.0.0-rc1` — **Feature complete** (Fase 0–7). Main scene: **Hub Sanctum**.
 
 ## Menambah Item / Musuh
 

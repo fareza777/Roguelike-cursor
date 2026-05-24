@@ -34,6 +34,8 @@ func configure(cfg: Dictionary) -> void:
 	if room_title:
 		room_title.text = cfg.get("label", rt.capitalize())
 	_apply_theme(rt)
+	_apply_biome(cfg.get("biome", "catacombs"))
+	_apply_modifier(cfg.get("modifier", {}))
 	match rt:
 		"start", "exit":
 			GameManager.set_enemies_remaining(0)
@@ -81,11 +83,59 @@ func _spawn_enemies() -> void:
 		var e := ENEMY_SCENE.instantiate()
 		var eid: String = enemy_ids[randi() % maxi(1, enemy_ids.size())] if enemy_ids.size() > 0 else "slime_void"
 		e.enemy_id = eid
+		if has_meta("enemy_speed_mult"):
+			e.move_speed *= float(get_meta("enemy_speed_mult"))
 		enemies_container.add_child(e)
 		if points.size() > i:
 			e.global_position = points[i]
 		else:
 			e.global_position = global_position + Vector2(randf_range(-180, 180), randf_range(-100, 100))
+
+
+func _apply_biome(biome: String) -> void:
+	if not floor_poly:
+		return
+	match biome:
+		"fungal":
+			floor_poly.modulate = Color(0.75, 1.0, 0.8)
+		"crystal":
+			floor_poly.modulate = Color(0.8, 0.85, 1.15)
+		_:
+			floor_poly.modulate = Color.WHITE
+
+
+func _apply_modifier(mod: Dictionary) -> void:
+	if mod.is_empty() or mod.get("id", "none") == "none":
+		return
+	var id: String = mod.get("id", "")
+	if room_title:
+		room_title.text += " [%s]" % mod.get("name", id)
+	match id:
+		"darkness":
+			for light in get_tree().get_nodes_in_group("room_lights"):
+				if light is PointLight2D:
+					light.energy *= float(mod.get("light_energy_mult", 0.45))
+		"poison_fog":
+			set_meta("poison_dot", float(mod.get("player_dot", 1)))
+		"gold_rich":
+			set_meta("gold_mult", float(mod.get("gold_mult", 1.5)))
+		"frenzy":
+			set_meta("enemy_speed_mult", float(mod.get("enemy_speed_mult", 1.2)))
+		"elite_wave":
+			spawn_count += int(mod.get("extra_spawn", 2))
+
+
+func _process(delta: float) -> void:
+	if has_meta("poison_dot"):
+		_poison_tick -= delta
+		if _poison_tick <= 0.0:
+			_poison_tick = 2.0
+			var player := get_tree().get_first_node_in_group("player")
+			if player and player.has_method("take_damage"):
+				player.take_damage(get_meta("poison_dot"), self)
+
+
+var _poison_tick := 0.0
 
 
 func _spawn_boss() -> void:

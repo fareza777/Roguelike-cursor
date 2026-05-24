@@ -6,15 +6,16 @@ var _data: Dictionary = {}
 var _behavior: String = "chase_melee"
 var _attack_cd := 0.0
 var _target: Node2D = null
-var _phase := 1  # boss
+var _phase := 1
 
 @onready var ai_timer: Timer = $AITimer
-@onready var attack_range_shape: CollisionShape2D = $AttackRange/CollisionShape2D
 
 
 func _ready() -> void:
 	add_to_group("enemy")
 	_load_from_data()
+	if _data.get("tier", "") == "elite":
+		EliteAffix.roll_and_apply(self)
 	super._ready()
 	_find_target()
 	if ai_timer:
@@ -44,18 +45,13 @@ func _physics_process(delta: float) -> void:
 		_find_target()
 		return
 	match _behavior:
-		"chase_melee":
-			_ai_chase_melee(delta)
-		"charger":
-			_ai_charger(delta)
-		"ranged":
-			_ai_ranged(delta)
-		"summoner":
-			_ai_chase_melee(delta)
-		"boss_phased":
-			_ai_boss(delta)
-		_:
-			_ai_chase_melee(delta)
+		"chase_melee": _ai_chase_melee(delta)
+		"charger": _ai_charger(delta)
+		"ranged": _ai_ranged(delta)
+		"summoner": _ai_chase_melee(delta)
+		"boss_phased": _ai_boss(delta)
+		_: _ai_chase_melee(delta)
+	EnemyAIController.process(self, delta)
 	move_and_slide()
 
 
@@ -77,14 +73,13 @@ func _ai_chase_melee(_delta: float) -> void:
 		_perform_attack()
 
 
-func _ai_charger(delta: float) -> void:
+func _ai_charger(_delta: float) -> void:
 	if _target == null:
 		return
 	var dir := (_target.global_position - global_position).normalized()
 	velocity = dir * move_speed * 1.25
 	rotation = dir.angle()
-	var dist := global_position.distance_to(_target.global_position)
-	if dist < 50.0 and _attack_cd <= 0.0:
+	if global_position.distance_to(_target.global_position) < 50.0 and _attack_cd <= 0.0:
 		_perform_attack()
 
 
@@ -107,11 +102,12 @@ func _ai_boss(delta: float) -> void:
 	if current_hp < max_hp * 0.5 and _phase == 1:
 		_phase = 2
 		move_speed *= 1.2
+		EventBus.ui_toast.emit("Boss Phase 2!")
 	_ai_chase_melee(delta)
 
 
 func _on_ai_tick() -> void:
-	if _behavior == "summoner" and randf() < 0.15:
+	if _behavior == "summoner" and randf() < 0.18:
 		_spawn_minion()
 
 
@@ -121,18 +117,22 @@ func _spawn_minion() -> void:
 	inst.enemy_id = "mushroom_sporeling"
 	inst.global_position = global_position + Vector2(randf_range(-40, 40), randf_range(-40, 40))
 	get_parent().add_child(inst)
+	GameManager.set_enemies_remaining(GameManager.enemies_remaining + 1)
 
 
 func _perform_attack() -> void:
 	_attack_cd = float(_data.get("stats", {}).get("attack_cooldown", 1.2))
 	if _target and _target.has_method("take_damage"):
 		_target.take_damage(attack_power, self)
+		if has_meta("elite_affix"):
+			var aff: Dictionary = get_meta("elite_affix")
+			if aff.get("lifesteal_on_hit", 0.0) > 0.0:
+				heal(attack_power * float(aff["lifesteal_on_hit"]))
 
 
 func _fire_projectile(dir: Vector2) -> void:
 	_attack_cd = float(_data.get("stats", {}).get("attack_cooldown", 1.2))
-	var proj_scene := preload("res://scenes/combat/EnemyProjectile.tscn")
-	var p := proj_scene.instantiate()
+	var p := PoolManager.acquire_projectile()
 	p.global_position = global_position + dir * 20.0
 	p.direction = dir
 	p.damage = attack_power
@@ -140,8 +140,16 @@ func _fire_projectile(dir: Vector2) -> void:
 
 
 func take_damage(amount: float, source: Node = null, tags: Array = []) -> void:
-	super.take_damage(amount, source, tags)
-	EventBus.enemy_damaged.emit(self, amount, source)
+	if get_meta("reflect_melee", 0.0) > 0.0 and "melee" in tags:
+		if source and source.has_method("take_damage"):
+			source.take_damage(amount * float(get_meta("reflect_melee")), self, ["reflect"])
+	var mitigated := maxf(1.0, amount - defense)
+	current_hp -= mitigated
+	_flash_hit()
+	_update_health_bar()
+	EventBus.enemy_damaged.emit(self, mitigated, source)
+	if current_hp <= 0.0:
+		die()
 
 
 func die() -> void:
@@ -150,8 +158,12 @@ func die() -> void:
 	var killer := get_tree().get_first_node_in_group("player")
 	EventBus.enemy_killed.emit(self, killer)
 	GameManager.on_enemy_killed()
-	GameManager.add_gold(randi_range(2, 8))
+	var gold_mult := 1.0 + float(MetaManager.get_total_effect().get("gold_mult", 0.0))
+	GameManager.add_gold(int(randi_range(2, 8) * gold_mult))
 	_spawn_loot()
+	EliteAffix.on_death(self)
+	if enemy_id == "mushroom_sporeling":
+		TelegraphSystem.show_circle(global_position, 50.0, 2.5, Color(0.3, 0.9, 0.2, 0.25))
 	AudioManager.play_sfx("enemy_death")
 	super.die()
 
@@ -164,16 +176,15 @@ func _spawn_loot() -> void:
 		"boss": chance = 1.0
 	if randf() > chance:
 		return
-	var table_id: String = _data.get("loot_table", "common_tier1")
-	var item_data := ItemRoller.roll_item_from_loot(table_id)
-	var pickup_scene := preload("res://scenes/items/ItemPickup.tscn")
-	var pickup := pickup_scene.instantiate()
+	var item_data := ItemRoller.roll_item_from_loot(_data.get("loot_table", "common_tier1"))
+	var pickup := PoolManager.acquire_pickup()
 	pickup.item_data = item_data
 	pickup.global_position = global_position
 	get_parent().add_child(pickup)
 
 
 func _on_death() -> void:
+	JuiceManager.screen_shake(5.0)
 	var tw := create_tween()
-	tw.tween_property(self, "modulate:a", 0.0, 0.25)
+	tw.tween_property(self, "modulate:a", 0.0, 0.3)
 	tw.tween_callback(queue_free)
