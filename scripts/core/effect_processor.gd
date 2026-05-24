@@ -2,7 +2,7 @@ class_name EffectProcessor
 extends RefCounted
 ## Full combat & item effect resolution — Fase 2.
 
-static func apply_stat_modifiers(base_stats: Dictionary, item_list: Array, synergy_bonus: Dictionary = {}) -> Dictionary:
+static func apply_stat_modifiers(base_stats: Dictionary, item_list: Array, synergy_bonus = {}) -> Dictionary:
 	var out := base_stats.duplicate()
 	for item in item_list:
 		if item is Dictionary:
@@ -13,17 +13,18 @@ static func apply_stat_modifiers(base_stats: Dictionary, item_list: Array, syner
 				if eff.get("type") == "stat":
 					var s: String = eff.get("stat", "")
 					out[s] = out.get(s, 0) + int(eff.get("value", 0))
-	if synergy_bonus.has("defense"):
-		out["defense"] = out.get("defense", 0) + int(synergy_bonus["defense"])
-	if synergy_bonus.has("speed"):
-		out["speed"] = out.get("speed", 0) + int(synergy_bonus["speed"])
-	if synergy_bonus.has("attack_pct"):
-		var atk := float(out.get("attack", 0))
-		out["attack"] = int(atk * (1.0 + float(synergy_bonus["attack_pct"])))
+	if synergy_bonus is Dictionary:
+		if synergy_bonus.has("defense"):
+			out["defense"] = out.get("defense", 0) + int(synergy_bonus["defense"])
+		if synergy_bonus.has("speed"):
+			out["speed"] = out.get("speed", 0) + int(synergy_bonus["speed"])
+		if synergy_bonus.has("attack_pct"):
+			var atk := float(out.get("attack", 0))
+			out["attack"] = int(atk * (1.0 + float(synergy_bonus["attack_pct"])))
 	return out
 
 
-static func get_passive_modifiers(item_list: Array, synergy_bonus: Dictionary = {}) -> Dictionary:
+static func get_passive_modifiers(item_list: Array, synergy_bonus = {}) -> Dictionary:
 	var mods := {
 		"lifesteal": 0.0,
 		"crit_chance": 0.0,
@@ -41,14 +42,15 @@ static func get_passive_modifiers(item_list: Array, synergy_bonus: Dictionary = 
 					var apply_id: String = eff.get("apply", "")
 					if mods.has(apply_id):
 						mods[apply_id] += float(eff.get("value", 0))
-	mods["crit_chance"] += float(synergy_bonus.get("crit_chance", 0.0))
-	mods["crit_damage_pct"] += float(synergy_bonus.get("crit_damage_pct", 0.0))
-	mods["lifesteal"] += float(synergy_bonus.get("lifesteal", 0.0))
-	mods["burn_bonus"] += float(synergy_bonus.get("burn_bonus", 0.0))
-	mods["bleed_bonus"] += float(synergy_bonus.get("bleed_bonus", 0.0))
-	mods["slow_bonus"] += float(synergy_bonus.get("slow_bonus", 0.0))
-	mods["chain_bonus"] += float(synergy_bonus.get("chain_bonus", 0.0))
-	mods["on_kill_heal"] += float(synergy_bonus.get("on_kill_heal", 0.0))
+	if synergy_bonus is Dictionary:
+		mods["crit_chance"] += float(synergy_bonus.get("crit_chance", 0.0))
+		mods["crit_damage_pct"] += float(synergy_bonus.get("crit_damage_pct", 0.0))
+		mods["lifesteal"] += float(synergy_bonus.get("lifesteal", 0.0))
+		mods["burn_bonus"] += float(synergy_bonus.get("burn_bonus", 0.0))
+		mods["bleed_bonus"] += float(synergy_bonus.get("bleed_bonus", 0.0))
+		mods["slow_bonus"] += float(synergy_bonus.get("slow_bonus", 0.0))
+		mods["chain_bonus"] += float(synergy_bonus.get("chain_bonus", 0.0))
+		mods["on_kill_heal"] += float(synergy_bonus.get("on_kill_heal", 0.0))
 	return mods
 
 
@@ -64,7 +66,7 @@ static func roll_proc_effects(item_list: Array, trigger: String) -> Array:
 	return triggered
 
 
-static func apply_on_hit(item_list: Array, target: Node, base_damage: float, source: Node, synergy_bonus: Dictionary = {}) -> void:
+static func apply_on_hit(item_list: Array, target: Node, base_damage: float, source: Node, synergy_bonus = {}) -> void:
 	var mods := get_passive_modifiers(item_list, synergy_bonus)
 	for eff in roll_proc_effects(item_list, "on_hit"):
 		var e := eff.duplicate(true)
@@ -82,7 +84,7 @@ static func apply_on_hit(item_list: Array, target: Node, base_damage: float, sou
 		target.take_damage(base_damage * mult, source, ["crit"])
 
 
-static func apply_on_kill(item_list: Array, source: Node, synergy_bonus: Dictionary = {}) -> void:
+static func apply_on_kill(item_list: Array, source: Node, synergy_bonus = {}) -> void:
 	var mods := get_passive_modifiers(item_list, synergy_bonus)
 	for eff in roll_proc_effects(item_list, "on_kill"):
 		if eff.get("apply") == "heal" and source.has_method("heal"):
@@ -96,9 +98,12 @@ static func apply_on_damaged(item_list: Array, attacker: Node, victim: Node) -> 
 
 
 static func tick_auras(item_list: Array, player: Node, radius: float = 90.0) -> void:
+	if player == null or not player is Node2D:
+		return
+	var origin: Node2D = player as Node2D
 	for eff in _collect_by_type(item_list, "aura"):
 		if eff.get("apply") == "burn_aura":
-			damage_enemies_in_radius(player, radius, float(eff.get("damage", 2)), player)
+			damage_enemies_in_radius(origin, radius, float(eff.get("damage", 2)), player)
 
 
 static func use_consumable(item: Dictionary, player: Node) -> bool:
@@ -127,15 +132,20 @@ static func _apply_consumable_effect(eff: Dictionary, player: Node) -> void:
 
 
 static func _apply_consumable_aoe(eff: Dictionary, player: Node) -> void:
+	if player == null or not player is Node2D:
+		return
 	var radius: float = float(eff.get("radius", 120))
 	var dmg: float = float(eff.get("damage", 40))
-		damage_enemies_in_radius(player, radius, dmg, player)
+	damage_enemies_in_radius(player as Node2D, radius, dmg, player)
 
 
 static func damage_enemies_in_radius(origin: Node2D, radius: float, damage: float, source: Node) -> void:
-	if origin == null:
+	if origin == null or not is_instance_valid(origin):
 		return
-	for node in origin.get_tree().get_nodes_in_group("enemy"):
+	var tree := origin.get_tree()
+	if tree == null:
+		return
+	for node in tree.get_nodes_in_group("enemy"):
 		if node is Node2D and origin.global_position.distance_to(node.global_position) <= radius:
 			if node.has_method("take_damage"):
 				node.take_damage(damage, source, ["aoe"])

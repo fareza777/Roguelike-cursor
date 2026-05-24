@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://de2jvy7hkkn4f"
+
+[deps]
+
+files=["res://docs/balance/items.drop.translation", "res://docs/balance/items.drop.translation", "res://docs/balance/items.drop.translation", "res://docs/balance/items.affix.translation", "res://docs/balance/items.sell.translation"]
+
+source_file="res://docs/balance/items.csv"
+dest_files=["res://docs/balance/items.drop.translation", "res://docs/balance/items.drop.translation", "res://docs/balance/items.drop.translation", "res://docs/balance/items.affix.translation", "res://docs/balance/items.sell.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

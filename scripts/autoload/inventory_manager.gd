@@ -1,6 +1,7 @@
 extends Node
 ## Bag (6 slots) + equip weapon / armor / relic.
 
+const _FX = preload("res://scripts/core/effect_processor.gd")
 const BAG_SIZE := 6
 
 var bag: Array = []
@@ -98,7 +99,7 @@ func use_consumable(bag_index: int, player: Node) -> bool:
 	var item = bag[bag_index]
 	if item == null or item.get("type") != "consumable":
 		return false
-	EffectProcessor.use_consumable(item, player)
+	_FX.use_consumable(item, player)
 	bag[bag_index] = null
 	bag_changed.emit()
 	EventBus.ui_toast.emit("Used: %s" % item.get("name", "Item"))

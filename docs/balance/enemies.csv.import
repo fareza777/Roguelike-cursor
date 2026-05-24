@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://bvi2wmjc5nns"
+
+[deps]
+
+files=["res://docs/balance/enemies.loot.translation", "res://docs/balance/enemies.loot.translation", "res://docs/balance/enemies.gold.translation", "res://docs/balance/enemies.gold.translation"]
+
+source_file="res://docs/balance/enemies.csv"
+dest_files=["res://docs/balance/enemies.loot.translation", "res://docs/balance/enemies.loot.translation", "res://docs/balance/enemies.gold.translation", "res://docs/balance/enemies.gold.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

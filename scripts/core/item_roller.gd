@@ -46,9 +46,12 @@ static func _merge_affix(item: Dictionary, aff: Dictionary) -> void:
 		if t not in item["tags"]:
 			item["tags"].append(t)
 	for eff in aff.get("effects", []):
-		item.setdefault("effects", []).append(eff.duplicate(true))
+		if not item.has("effects"):
+			item["effects"] = []
+		item["effects"].append(eff.duplicate(true))
 	if aff.has("stat_bonus"):
 		var sb: Dictionary = aff["stat_bonus"]
-		item.setdefault("stats", {})
+		if not item.has("stats"):
+			item["stats"] = {}
 		for k in sb:
 			item["stats"][k] = item["stats"].get(k, 0) + int(sb[k])
